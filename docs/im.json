@@ -5,7 +5,7 @@
     "Page": 0.7,
     "Site": 0.3,
     "tbl_url_blacklist": [{"url" : ""}],
-    "tbl_url_whitelist": [{ "url" : "^https://servicecanada.github.io\/"}]
+    "tbl_url_whitelist": [{ "url" : "^servicecanada.github.io\/"}]
   },
   "qry_active_surveys" : [
   {
