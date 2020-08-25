@@ -101,8 +101,8 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "survey_name" : "ESDC - MSCA Feedback Form - Thank you page",
     "tbl_survey_urls" : [
-			{ "url" : "https://servicecanada.github.io/invitation-manager/Test_Environment/FolderX/TestX1_en.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/Test_Environment/FolderX/TestX1_fr.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/pspc-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/pspc-fra.html"},
 			{ "url" : "https://servicecanada.github.io/invitation-manager/Test_Environment/FolderY/TestY1_en.html"},
 			{ "url" : "https://servicecanada.github.io/invitation-manager/Test_Environment/FolderY/TestY1_fr.html"}
     ]
