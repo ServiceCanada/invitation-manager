@@ -99,7 +99,7 @@
 	margin: 5px; 
 }
 				
-.closeIcon {
+/*.closeIcon {
 	float: right; 
 	font-size: 1em; 
 	font-weight: 700; 
@@ -108,7 +108,7 @@
 	background-color: transparent; 
 	border : transparent;
 	margin-right: 0; 
-}
+}*/
 
 .overlay-def header { 
 	background-color: #2e5274;
