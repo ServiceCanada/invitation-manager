@@ -99,10 +99,10 @@
 	margin: 5px; 
 }
 
-/*
+
 .closeIcon {
 	float: right; 
-	font-size: 1em; 
+	font-size: 1.7em; 
 	font-weight: 700; 
 	line-height: 0.8; 
 	color: #fff; 
@@ -110,7 +110,7 @@
 	border : transparent;
 	margin-right: 0; 
 }
-*/
+
 
 .overlay-def header { 
 	background-color: #2e5274;
