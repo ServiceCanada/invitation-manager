@@ -102,7 +102,7 @@
 
 .closeIcon {
 	float: right; 
-	font-size: 1.7em; 
+	font-size: 1em; 
 	font-weight: 700; 
 	line-height: 0.8; 
 	color: #fff; 
@@ -120,7 +120,7 @@
 }
 				
 .zoomX {
-	/*font-size: 1.8em;*/
+	font-size: 1.8em;
 	color: #FFFFFF;
 }
 
