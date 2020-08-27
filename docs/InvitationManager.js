@@ -575,6 +575,9 @@ function imSetup() {
 			"<div class='modal-footer  hidden'>" +
 		
 			"</div>" +
+		    	"<button id='hrdClose' class='hidden'>" +
+		
+			"</button>" +
 		"</aside>",
 		
 		$html = $( html ),
