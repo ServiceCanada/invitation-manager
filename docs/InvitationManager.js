@@ -732,7 +732,7 @@ function imSetup() {
 	function dbUrlFromJson() {
 		
 		$.getJSON(
-			"/InvitationManager/json/independent/config.JSON",
+			"/invitation-manager/config.JSON",
 			function() {
 				consoleLog("Get Config File Path is Successful");
 			})
