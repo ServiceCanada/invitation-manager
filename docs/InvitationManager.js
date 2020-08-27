@@ -582,9 +582,7 @@ function imSetup() {
 		$userFocus = true,
 		overlayIsClosing,
 		focusFlag;
-		
-		// if there is a close button
-		 $("#hdrClose").css('visibility','hidden');
+	
 		
 		// Close the overlay if any of its links/buttons get clicked or if the escape key gets pressed.
 		$html.bind( "click vclick mouseup keydown", function( e ) {	
@@ -671,6 +669,9 @@ function imSetup() {
 		// trigger the init and open event of the overlay
 		$( "#gc-im-popup" ).trigger( "wb-init.wb-overlay" );
 		$( "#gc-im-popup" ).trigger( "open.wb-overlay" );
+		
+		// if there is a close button
+		 $("#hdrClose").css('visibility','hidden');
 		
 
 		// Find where the user is currently focused.
