@@ -561,7 +561,7 @@ function imSetup() {
 		"<aside id='gc-im-popup' class='asideBody wb-overlay modal-content overlay-def wb-popup-mid shadow'>" +
 			"<header class='modal-header'>" +
 				"<div class='modal-title'>" + survey["title-" + wb.lang] + 
-					"<button type='button' class='overlaydef closeIcon zoomX' aria-label='Close'><span aria-hidden='true' > &times;</span></button>" +
+					"<button type='button' class='overlaydef closeIcon zoomX' aria-label='Close'><span aria-hidden='true' > /*&times;*/</span></button>" +
 				"</div>" + // for the close icon
 			"</header>" +
 			"<div class='modal-body'>" +
