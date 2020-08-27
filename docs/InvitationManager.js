@@ -575,7 +575,7 @@ function imSetup() {
 			"<div class='modal-footer  hidden'>" +
 		
 			"</div>" +
-		    	"<button id='hrdClose' class='hidden'>" +
+		    	"<button id='hdrClose' class='hidden'>" +
 		
 			"</button>" +
 		"</aside>",
