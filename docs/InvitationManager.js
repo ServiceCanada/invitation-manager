@@ -584,7 +584,7 @@ function imSetup() {
 		focusFlag;
 		
 		// if there is a close button
-		 $("#hdrClose").css("display","none");
+		 $("#hdrClose").css('visibility','hidden');
 		
 		// Close the overlay if any of its links/buttons get clicked or if the escape key gets pressed.
 		$html.bind( "click vclick mouseup keydown", function( e ) {	
