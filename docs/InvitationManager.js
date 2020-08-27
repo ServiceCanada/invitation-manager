@@ -575,16 +575,16 @@ function imSetup() {
 			"<div class='modal-footer  hidden'>" +
 		
 			"</div>" +
-		    	"<button id='hdrClose' class='hidden'>" +
-		
-			"</button>" +
+		    	
 		"</aside>",
 		
 		$html = $( html ),
 		$userFocus = true,
 		overlayIsClosing,
 		focusFlag;
-
+		
+		 document.getElementById('hdrClose').style.visibility = 'hidden';
+		
 		// Close the overlay if any of its links/buttons get clicked or if the escape key gets pressed.
 		$html.bind( "click vclick mouseup keydown", function( e ) {	
 	  	// Proceed if any of the overlay's links or buttons get clicked (including middle mouse clicks) 
