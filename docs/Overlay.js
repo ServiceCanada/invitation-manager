@@ -369,7 +369,7 @@ wb = {
 				switch ( which ) {
 					
 					// Tab Key
-					case 9: 
+					/*case 9: 
 						// No special tab handling when ignoring outside activity
 						if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
 							$focusable = $( overlay ).find( ":focusable:not([tabindex='-1'])" );
@@ -382,6 +382,7 @@ wb = {
 							}
 						}
 						break;
+					*/
 						
 					// EScape key
 					case 27:
