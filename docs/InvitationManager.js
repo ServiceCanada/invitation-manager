@@ -685,7 +685,7 @@ function imSetup() {
 		// (e.g. by clicking or touching outside of it or using a screen reader to navigate by links). 
 		// In that scenario, the user focus variable needs to be cleared to prevent strange focusing 
 		// if the user enters the overlay again afterwards and focuses out of/closes it.
-		$( "body" ).on( "focusin mousedown", function ( e ) {
+//		$( "body" ).on( "focusin mousedown", function ( e ) {
 	
 	  	// When the survey overlay first gains focus, set the focus flag variable to 1. 
 		// Sometimes the overlay isn't the first thing that gains focus.
@@ -694,7 +694,7 @@ function imSetup() {
 		// clear the user focus variable. If the overlay is losing focus because it's being closed, 
 		// don't do anything or else IE11 (possibly also IE8-10/Edge) will run this event handler too early 
 		// and prevent the close event from returning user's focus to the right spot.
-	  	if ( $( e.target ).closest( ".wb-overlay", this ).length ) {
+/*	  	if ( $( e.target ).closest( ".wb-overlay", this ).length ) {
 		
 			if ( ! focusFlag ) {
 		  		focusFlag = 1;
@@ -709,6 +709,7 @@ function imSetup() {
 
 		
 		} );
+*/
 		
 				// Correct popup positionning 0n load, on resize an on Y scroll if necessary
 		$( window ).on( "resize scroll", function() {
