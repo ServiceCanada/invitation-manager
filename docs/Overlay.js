@@ -559,7 +559,7 @@ wb = {
 	* Bind the setfocus event	 
 	*/
 	$document.on( setFocusEvent, function( event ) {
-		if ( event.namespace === "wb" ) {
+		/*if ( event.namespace === "wb" ) {
 			var $elm = $( event.target ),
 				$closedParents = $elm.not( "summary" ).parents( "details, [role='tabpanel']" ),
 				$closedPanels,
@@ -584,10 +584,10 @@ wb = {
 			}
 			
 			// Set the tabindex to -1 (as needed) to ensure the element is focusable
-			/*$elm
+			$elm
 				.filter( ":not([tabindex], a[href], button, input, textarea, select)" )
 				.attr( "tabindex", "-1" );
-			*/	
+				
 			// Assigns focus to an element (delay allows for revealing of hidden content)
 			setTimeout( function() {
 				$elm.trigger( "focus" )
@@ -602,7 +602,7 @@ wb = {
 				return $elm;
 			}, 100);
 		}
-			
+		*/	
 	});
 	
 	
