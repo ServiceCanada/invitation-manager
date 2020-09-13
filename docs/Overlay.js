@@ -584,10 +584,10 @@ wb = {
 			}
 			
 			// Set the tabindex to -1 (as needed) to ensure the element is focusable
-			$elm
+			/*$elm
 				.filter( ":not([tabindex], a[href], button, input, textarea, select)" )
 				.attr( "tabindex", "-1" );
-				
+			*/	
 			// Assigns focus to an element (delay allows for revealing of hidden content)
 			setTimeout( function() {
 				$elm.trigger( "focus" )
