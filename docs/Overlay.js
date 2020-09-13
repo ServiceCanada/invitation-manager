@@ -376,10 +376,11 @@ wb = {
 							length = $focusable.length;
 							index = $focusable.index( event.target ) + ( event.shiftkey ? -1 : 1 );
 							
-							if ( index === -1 || index === length ) {
+							/*if ( index === -1 || index === length ) {
 								event.preventDefault();
 								$focusable.eq( index === -1 ? length - 1 : 0 ).trigger( setFocusEvent );
 							}
+							*/
 						}
 						break;
 					
