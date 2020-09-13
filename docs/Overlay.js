@@ -371,17 +371,17 @@ wb = {
 					// Tab Key
 					case 9: 
 						// No special tab handling when ignoring outside activity
-						if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
+						/*if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
 							$focusable = $( overlay ).find( ":focusable:not([tabindex='-1'])" );
 							length = $focusable.length;
 							index = $focusable.index( event.target ) + ( event.shiftkey ? -1 : 1 );
 							
-							/*if ( index === -1 || index === length ) {
+							if ( index === -1 || index === length ) {
 								event.preventDefault();
 								$focusable.eq( index === -1 ? length - 1 : 0 ).trigger( setFocusEvent );
 							}
-							*/
-						}
+							
+						}*/
 						break;
 					
 						
