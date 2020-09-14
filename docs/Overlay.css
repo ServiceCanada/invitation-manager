@@ -125,7 +125,7 @@
 }
 
 .zoomX:hover {
-	color: rgba(225,228,231,1);  	
+	color: #C6C2D2; /*rgba(225,228,231,1); */ 	
 }
 
 
@@ -187,7 +187,7 @@ a.gc-im-btn {
 
 .gc-im-btn-secondary {
 	color: #26374A;
-	background-color: #E1E4E7;
+	background-color: #C2CDD2; /*#E1E4E7;*/
 }
 
 .gc-im-btn-secondary:hover {
