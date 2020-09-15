@@ -632,9 +632,9 @@ function imSetup() {
 				else {
 			  		$html.next().trigger( "setfocus.wb" );
 				}
-				*/
+				
 		    }
-		  
+		  */
 			
 			// Remove this event handler.
 			$( this ).off();
