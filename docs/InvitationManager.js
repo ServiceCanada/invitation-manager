@@ -618,7 +618,7 @@ function imSetup() {
 
 		  	// Return the user's focus to where they were before the overlay stole it, then delete the user focus variable.
 		  	// Otherwise, return the user's focus to the H1 element (or if it doesn't exist - the next element, which is likely to be main). Needed to prevent browsers from unexpectedly returning focus to the top of the page.
-		  	if ( $userFocus ) {
+		  	/*if ( $userFocus ) {
 				$userFocus.trigger( "setfocus.wb" );
 				$userFocus = null;
 		  	}
@@ -632,6 +632,7 @@ function imSetup() {
 				else {
 			  		$html.next().trigger( "setfocus.wb" );
 				}
+				*/
 		    }
 		  
 			
@@ -643,7 +644,7 @@ function imSetup() {
 
 	
 		// If the user tabs out of the overlay after it was automatically focused on, return their initial focus.
-		$html.find( ".wb-overlay" ).on( "keydown", function( e ) {
+		/*$html.find( ".wb-overlay" ).on( "keydown", function( e ) {
 			
 	  		// Proceed if tabbing backwards from the panel container/yes link or if tabbing forward from the close button.
 	  		if ( ( ( ( $( e.target ).hasClass( "wb-overlay" ) || e.target.id === "survey-yes" ) && e.shiftKey) 
@@ -662,9 +663,10 @@ function imSetup() {
 			}
 		} );
 		
-		
+		*/
 		// Insert the overlay directly before the <main> element.
 		$( "main" ).before( $html );
+		$( "main" ).before ("<a id='first-focus' class='gc-skipLink' href='#gc-im-popup'>Skip to Invitation Manager Popup</a> ");
 		
 		// trigger the init and open event of the overlay
 		$( "#gc-im-popup" ).trigger( "wb-init.wb-overlay" );
@@ -672,13 +674,16 @@ function imSetup() {
 		
 		// if there is a close button
 		 $("#hdrClose").css('visibility','hidden');
+		 
+		// when the page load the focus is on the link "skip to Invitation Manager Popup"
+		setTimeout( function() {$("#first-focus").trigger("focus");},1000);
 		
 
 		// Find where the user is currently focused.
-		$userFocus = $( document.activeElement );
+		//$userFocus = $( document.activeElement );
 	
 		// Automatically focus on the overlay.
-		$html.find( ".wb-overlay" ).trigger( "setfocus.wb" );
+		//$html.find( ".wb-overlay" ).trigger( "setfocus.wb" );
 	
 		// After the overlay steals focus, clear the user focus variable if the user goes outside of of it.
 		// It's possible to go outside of the overlay without closing or tabbing out of it 

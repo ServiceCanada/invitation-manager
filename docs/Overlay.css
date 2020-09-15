@@ -224,3 +224,21 @@ a.gc-im-btn {
 #gc-im-popup ul li.marginBottom-no {
 	margin-bottom: 15px;
 }
+
+.gc-skipLink {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	margin: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px; 
+ }
+ 
+ .gc-skipLink:focus {
+	clip: rect(auto, auto, auto, auto);
+	height: inherit;
+	margin: inherit;
+	overflow: inherit;
+	position: static;
+	width: inherit; 
+}
