@@ -560,15 +560,15 @@ function imSetup() {
 		var html =  
 		"<aside id='gc-im-popup' class='asideBody wb-overlay modal-content overlay-def wb-popup-mid shadow'>" +
 			"<header class='modal-header'>" +
-				"<div class='modal-title'>" + survey["title-" + wb.lang] + 
+				"<div class='modal-title'>" + survey["title-" + wb_im.lang] + 
 					"<button type='button' class='overlaydef closeIcon zoomX' aria-label='Close'><span aria-hidden='true' >&times;</span></button>" +
 				"</div>" + // for the close icon
 			"</header>" +
 			"<div class='modal-body'>" +
-				survey["body-" + wb.lang] +
+				survey["body-" + wb_im.lang] +
 				"<ul class='list-inline mrgn-tp-md'>" +
-					"<li class='mrgn-tp-md marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb.lang] + "' target='_blank'>" + survey["yes-" + wb.lang] + "</a></li> " + 
-					"<li class='mrgn-tp-md marginBottom-no'><button id='survey-no' class='gc-im-btn gc-im-btn-secondary survey-close'>" + survey["no-" + wb.lang] + "</button></li>" +
+					"<li class='mrgn-tp-md marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb_im.lang] + "' target='_blank'>" + survey["yes-" + wb_im.lang] + "</a></li> " + 
+					"<li class='mrgn-tp-md marginBottom-no'><button id='survey-no' class='gc-im-btn gc-im-btn-secondary survey-close'>" + survey["no-" + wb_im.lang] + "</button></li>" +
 				"</ul>" +
 				"<input type='hidden' name='popupName' value='" + survey["title-en"] + "'>" +
 			"</div>" +
@@ -623,7 +623,7 @@ function imSetup() {
 		$( "main" ).before( $html );
 		
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
-		if (wb.lang === "fr")
+		if (wb_im.lang === "fr")
 		{
 			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
 			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Passer au gestionnaire des invitations</a></li> ");

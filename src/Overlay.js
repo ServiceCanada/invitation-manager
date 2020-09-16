@@ -20,7 +20,7 @@
 */
 
 
-wb = {
+wb_im = {
 	
 	initQueue: 0,
 	selectors: [],
@@ -318,7 +318,7 @@ wb = {
 	
 	
 	
-} )( jQuery, window, document, wb); 
+} )( jQuery, window, document, wb_im); 
 
 
 
