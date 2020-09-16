@@ -575,15 +575,13 @@ function imSetup() {
 			"<div class='modal-footer  hidden'>" +
 		
 			"</div>" +
-		    	
 		"</aside>",
 		
 		$html = $( html ),
-		$userFocus = true,
+		$userFocus = false,
 		overlayIsClosing,
 		focusFlag;
-	
-		
+
 		// Close the overlay if any of its links/buttons get clicked or if the escape key gets pressed.
 		$html.bind( "click vclick mouseup keydown", function( e ) {	
 	  	// Proceed if any of the overlay's links or buttons get clicked (including middle mouse clicks) 
@@ -614,27 +612,6 @@ function imSetup() {
 		  	// Remove the overlay shortly afterwards.
 		  	// This is being done to prevent problems when the yes link is middle-clicked. If the overlay were to be immediately removed, middle-clicking the yes link would remove the overlay without opening the link in a new tab/window. To avoid that issue, the overlay is now getting immediately hidden, then removed a short time later.
 		  	setTimeout( function() { $html.empty() }, 1000 );
-		  
-
-		  	// Return the user's focus to where they were before the overlay stole it, then delete the user focus variable.
-		  	// Otherwise, return the user's focus to the H1 element (or if it doesn't exist - the next element, which is likely to be main). Needed to prevent browsers from unexpectedly returning focus to the top of the page.
-		  	/*if ( $userFocus ) {
-				$userFocus.trigger( "setfocus.wb" );
-				$userFocus = null;
-		  	}
-		  	else {
-		  
-				// Does the H1 exist? If yes, focus to it.
-				// Otherwise, focus to whatever element comes after the overlay (likely main).
-				if ( $( "h1" ).length ) {
-			  		$( "h1" ).trigger( "setfocus.wb" );
-				}
-				else {
-			  		$html.next().trigger( "setfocus.wb" );
-				}
-				
-		    }
-		  */
 			
 			// Remove this event handler.
 			$( this ).off();
@@ -642,81 +619,27 @@ function imSetup() {
 		} );
 	
 
-	
-		// If the user tabs out of the overlay after it was automatically focused on, return their initial focus.
-		/*$html.find( ".wb-overlay" ).on( "keydown", function( e ) {
-			
-	  		// Proceed if tabbing backwards from the panel container/yes link or if tabbing forward from the close button.
-	  		if ( ( ( ( $( e.target ).hasClass( "wb-overlay" ) || e.target.id === "survey-yes" ) && e.shiftKey) 
-				|| e.target.id === "survey-close" ) && e.which === 9 && $userFocus ) {
-		  
-		  		// Don't focus to whatever comes directly before or after the overlay in the flow of content.
-		  		e.preventDefault();
-		  
-		  		// Return the user's focus to where they were before the overlay stole it, 
-				// then delete the user focus variable.
-		  		$userFocus.trigger( "setfocus.wb" );
-		  		$userFocus = null;
-		  
-		  		// Remove this event handler.
-		  		$( this ).off( "keydown" );
-			}
-		} );
-		
-		*/
 		// Insert the overlay directly before the <main> element.
 		$( "main" ).before( $html );
-		$( "main" ).before ("<a id='first-focus' class='gc-skipLink' href='#gc-im-popup'>Skip to Invitation Manager Popup</a> ");
+		
+		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
+		$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
+		"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
 		
 		// trigger the init and open event of the overlay
 		$( "#gc-im-popup" ).trigger( "wb-init.wb-overlay" );
 		$( "#gc-im-popup" ).trigger( "open.wb-overlay" );
 		
-		// if there is a close button
+		// if there is a close button in certain screens then hide it
 		 $("#hdrClose").css('visibility','hidden');
-		 
-		// when the page load the focus is on the link "skip to Invitation Manager Popup"
-		setTimeout( function() {$("#first-focus").trigger("focus");},1000);
 		
+		// Set the focus on the "Skip to Invitation Manager Popup" link
+		setTimeout( function() {
+			$("#first-focus").trigger("focus");
+		},1000);
 
-		// Find where the user is currently focused.
-		//$userFocus = $( document.activeElement );
-	
-		// Automatically focus on the overlay.
-		//$html.find( ".wb-overlay" ).trigger( "setfocus.wb" );
-	
-		// After the overlay steals focus, clear the user focus variable if the user goes outside of of it.
-		// It's possible to go outside of the overlay without closing or tabbing out of it 
-		// (e.g. by clicking or touching outside of it or using a screen reader to navigate by links). 
-		// In that scenario, the user focus variable needs to be cleared to prevent strange focusing 
-		// if the user enters the overlay again afterwards and focuses out of/closes it.
-//		$( "body" ).on( "focusin mousedown", function ( e ) {
-	
-	  	// When the survey overlay first gains focus, set the focus flag variable to 1. 
-		// Sometimes the overlay isn't the first thing that gains focus.
 
-	  	// After the overlay has initially gained focus, once something outside of it gets focused on, 
-		// clear the user focus variable. If the overlay is losing focus because it's being closed, 
-		// don't do anything or else IE11 (possibly also IE8-10/Edge) will run this event handler too early 
-		// and prevent the close event from returning user's focus to the right spot.
-/*	  	if ( $( e.target ).closest( ".wb-overlay", this ).length ) {
-		
-			if ( ! focusFlag ) {
-		  		focusFlag = 1;
-			}
-	  	}
-	  	else {
-	  
-			if ( ! overlayIsClosing && $userFocus ) {
-		  		$userFocus = null;
-			}
-	  	}
-
-		
-		} );
-*/
-		
-				// Correct popup positionning 0n load, on resize an on Y scroll if necessary
+		// Correct popup positionning on load, on resize an on Y scroll if necessary
 		$( window ).on( "resize scroll", function() {
 			
 			// Equals to popup default bottom value in CSS
