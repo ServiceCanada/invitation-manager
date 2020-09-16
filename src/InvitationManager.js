@@ -623,8 +623,15 @@ function imSetup() {
 		$( "main" ).before( $html );
 		
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
-		$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
-		"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
+		if (wb.lang === "fr")
+		{
+			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
+			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Passer au gestionnaire des invitations</a></li> ");
+		}
+		else {
+			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
+			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
+		}
 		
 		// trigger the init and open event of the overlay
 		$( "#gc-im-popup" ).trigger( "wb-init.wb-overlay" );
