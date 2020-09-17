@@ -26,7 +26,7 @@ Download the following files to your local drive:
   	* config.json
     * im.json
 
-To download each file, you can follow these steps:
+To download each file, you can follow these steps (works in Firefox and Chrome browsers):
 1.	Click on the file name to open it in GitHub
 2.	Click “Raw” button. The file will open as a page on your browser
 3.	Right-Click the page and select “Save as …”
