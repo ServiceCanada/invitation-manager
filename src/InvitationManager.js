@@ -561,7 +561,7 @@ function imSetup() {
 		"<aside id='gc-im-popup' class='asideBody wb-overlay modal-content overlay-def wb-popup-mid shadow'>" +
 			"<header class='modal-header'>" +
 				"<div class='modal-title'>" + survey["title-" + wb_im.lang] + 
-					"<button type='button' class='overlaydef closeIcon zoomX' aria-label='Close'>&times;</button>" +
+					"<button id='close-im' type='button' class='overlaydef closeIcon zoomX' aria-label='Close'>&times;</button>" +
 				"</div>" + // for the close icon
 			"</header>" +
 			"<div class='modal-body'>" +
@@ -616,6 +616,29 @@ function imSetup() {
 			// Remove this event handler.
 			$( this ).off();
 	  	}
+		
+		// if Tab in the NO button then focus will be triggerred outside of the popup
+		if ( ( e.type === "keydown" ) && ( e.which === 9 ) ) // Pressed the tab key.
+		{
+			if (e.target.id === "survey-no")
+			{	
+				setTimeout( function() {
+					$("#first-focus").trigger("focus");
+				},1000);	
+			}	
+		}
+		
+		// if shift-Tab in the close button then focus will be triggerred outside of the popup
+		if ( ( e.type === "keydown" ) && ( e.which === 9 ) && (e.which === 16)) // Pressed the tab key and shift key
+		{
+			if (e.target.id === "close-im")
+			{	
+				setTimeout( function() {
+					$("#first-focus").trigger("focus");
+				},1000);	
+			}	
+		}
+		
 		} );
 	
 
@@ -638,11 +661,11 @@ function imSetup() {
 		$( "#gc-im-popup" ).trigger( "open.wb-overlay" );
 		
 		// if there is a close button in certain screens then hide it
-		 // $("#hdrClose").css('display', 'none');
+		$("#hdrClose").css('display', 'none'); 
+		$("#hdrClose").css('visibility','hidden');
 		
 		// Set the focus on the "Skip to Invitation Manager Popup" link
-		setTimeout( function() {
-			$("#hdrClose").css('display', 'none');
+		setTimeout( function() {			
 			$("#first-focus").trigger("focus");
 		},1000);
 
