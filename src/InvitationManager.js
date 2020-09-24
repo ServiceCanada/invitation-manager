@@ -661,11 +661,13 @@ function imSetup() {
 		$( "#gc-im-popup" ).trigger( "open.wb-overlay" );
 		
 		// if there is a close button in certain screens then hide it
+
 		$("#hdrClose").css('display', 'none'); 
 		$("#hdrClose").css('visibility','hidden');
 		
+		
 		// Set the focus on the "Skip to Invitation Manager Popup" link
-		setTimeout( function() {			
+		setTimeout( function() {
 			$("#first-focus").trigger("focus");
 		},1000);
 
