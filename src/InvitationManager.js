@@ -699,7 +699,7 @@ function imSetup() {
 	function dbUrlFromJson() {
 		
 		// find the path of the current javascript file "InvitationManager.js"
-		var scripts = document.getElementsByTagName("script"),
+		/*var scripts = document.getElementsByTagName("script"),
 		i = 0,
 		path = "";
 		while (i < scripts.length)
@@ -712,10 +712,11 @@ function imSetup() {
 			}
 			i++;
 		}
-		
+		*/
 		// get the config.json file
 		$.getJSON(
-			path + "config.JSON",
+			//path + "config.JSON",
+			"/invitation-manager/config.JSON",
 			function() {
 				consoleLog("Get Config File Path is Successful");
 			})
