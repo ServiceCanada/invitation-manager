@@ -207,13 +207,13 @@ wb_im = {
 	* So, this is a good place to define variables that are common to all instances
 	* of the plugin on the page
 	*/
-	var componentName = "wb-overlay",
+	var componentName = "gc-im-wb-overlay",
 		selector = "." + componentName,
 		initEvent = "wb-init" + selector,
 		closeClass = "overlay-close",
 		linkClass = "overlay-lnk",
 		ignoreOutsideClass = "outside-off",
-		overlayOpenFlag = "wb-overlay-dlg",
+		overlayOpenFlag = "gc-im-wb-overlay-dlg",
 		initialized = false,
 		sourceLinks = {},
 		$document = wb.doc,

@@ -558,10 +558,10 @@ function imSetup() {
 	function invite(survey) {	
 	
 		var html =  
-		"<aside id='gc-im-popup' class='asideBody wb-overlay modal-content overlay-def wb-popup-mid shadow'>" +
+		"<aside id='gc-im-popup' class='asideBody gc-im-wb-overlay modal-content gc-im-overlay-def wb-popup-mid shadow'>" +
 			"<header class='modal-header'>" +
 				"<div class='modal-title'>" + survey["title-" + wb_im.lang] + 
-					"<button id='close-im' type='button' class='overlaydef closeIcon zoomX' aria-label='Close'>&times;</button>" +
+					"<button id='close-im' type='button' class='gc-im-overlaydef closeIcon zoomX' aria-label='Close'>&times;</button>" +
 				"</div>" + // for the close icon
 			"</header>" +
 			"<div class='modal-body'>" +
@@ -657,8 +657,8 @@ function imSetup() {
 		}
 		
 		// trigger the init and open event of the overlay
-		$( "#gc-im-popup" ).trigger( "wb-init.wb-overlay" );
-		$( "#gc-im-popup" ).trigger( "open.wb-overlay" );
+		$( "#gc-im-popup" ).trigger( "wb-init.gc-im-wb-overlay" );
+		$( "#gc-im-popup" ).trigger( "open.gc-im-wb-overlay" );
 		
 		// if there is a close button in certain screens then hide it
 
@@ -698,8 +698,24 @@ function imSetup() {
 	*/
 	function dbUrlFromJson() {
 		
+		// find the path of the current javascript file "InvitationManager.js"
+		var scripts = document.getElementsByTagName("script"),
+		i = 0,
+		path = "";
+		while (i < scripts.length)
+		{
+			var src = scripts[i].src;
+			if (src.includes("InvitationManager.js")) 
+			{
+				path = src.substring(0,src.lastIndexOf("/")+1);
+				break;
+			}
+			i++;
+		}
+		
+		// get the config.json file
 		$.getJSON(
-			"/invitation-manager/config.JSON",
+			path + "config.JSON",
 			function() {
 				consoleLog("Get Config File Path is Successful");
 			})

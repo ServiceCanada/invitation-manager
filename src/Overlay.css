@@ -6,31 +6,31 @@
 /***********************************************************/
 
 
-.wb-disable .wb-overlay {
+.gc-im-wb-disable .gc-im-wb-overlay {
 	 display: block !important;
 }
 
- .wb-overlay.wb-inview {
+ .gc-im-wb-overlay.wb-inview {
 	 display: block;
 }
 
- .wb-overlay.open {
+ .gc-im-wb-overlay.open {
 	 display: inline-block;
 	 position: fixed;		
 }
 
- .overlay-def {
+ .gc-im-overlay-def {
 	 overflow-y: auto;
 }
 
- .overlay-def header {
+ .gc-im-overlay-def header {
 	 background-color: #2e5274;
 	 color: #fff;
 	 display: block;
 	 padding: 0 44px 0 1em;
 }
 
- .overlay-def .modal-title {
+ .gc-im-overlay-def .modal-title {
 	 font-size: 1.15em;
 	 padding: 10px 0;
 }
@@ -73,7 +73,7 @@
 	padding: 15px;
 }
 
-.wb-overlay {
+.gc-im-wb-overlay {
 	background-clip: border-box;
 	background-color: #fff;
 	border: 0;
@@ -112,7 +112,7 @@
 }
 
 
-.overlay-def header { 
+.gc-im-overlay-def header { 
 	background-color: #2e5274;
 	color: #fff;
 	display: block;
