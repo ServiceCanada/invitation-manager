@@ -714,7 +714,7 @@ function imSetup() {
 		}
 		
 		// add this part to work with github
-		if (path.includes("https://combinatronics.com/ServiceCanada/invitation-manager/master/src") 
+		if (path.includes("https://combinatronics.com/ServiceCanada/invitation-manager/master/src")) 
 		{
 			path = "https://github.com/ServiceCanada/invitation-manager/tree/master/src/";
 		}
