@@ -713,11 +713,12 @@ function imSetup() {
 			i++;
 		}
 		
-		// add this part to work with github
+		// This part is added just to work with github example
 		if (path.includes("https://combinatronics.com/ServiceCanada/invitation-manager/master/src")) 
 		{
 			path = "https://servicecanada.github.io/invitation-manager/";
 		}
+		
 		// get the config.json file
 		$.getJSON(
 			path + "config.JSON",
