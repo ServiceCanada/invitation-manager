@@ -705,7 +705,7 @@ function imSetup() {
 		while (i < scripts.length)
 		{
 			var src = scripts[i].src;
-			if (src.includes("InvitationManager.js")) 
+			if (src.indexOf("InvitationManager.js") > -1) 
 			{
 				path = src.substring(0,src.lastIndexOf("/")+1);
 				break;
@@ -714,7 +714,7 @@ function imSetup() {
 		}
 		
 		// This part is added just to work with github example
-		if (path.includes("https://combinatronics.com/ServiceCanada/invitation-manager/master/src")) 
+		if (path.indexOf("https://combinatronics.com/ServiceCanada/invitation-manager/master/src") > -1) 
 		{
 			path = "https://servicecanada.github.io/invitation-manager/";
 		}
