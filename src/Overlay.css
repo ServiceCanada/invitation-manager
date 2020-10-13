@@ -242,3 +242,7 @@ a.gc-im-btn {
 	position: static;
 	width: inherit; 
 }
+
+.im-mrgn {
+	margin-top: 350px;
+}

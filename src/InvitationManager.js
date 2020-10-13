@@ -662,15 +662,15 @@ function imSetup() {
 		
 		// if there is a close button in certain screens then hide it
 
-		$("#hdrClose").css('display', 'none'); 
-		$("#hdrClose").css('visibility','hidden');
+		//$("#hdrClose").css('display', 'none'); 
+		//$("#hdrClose").css('visibility','hidden');
 		
 		
 		// Set the focus on the "Skip to Invitation Manager Popup" link
-		setTimeout( function() {
+		/*setTimeout( function() {
 			$("#first-focus").trigger("focus");
 		},1000);
-
+		*/
 
 		// Correct popup positionning on load, on resize an on Y scroll if necessary
 		$( window ).on( "resize scroll", function() {
@@ -678,6 +678,9 @@ function imSetup() {
 			// Equals to popup default bottom value in CSS
 			var bottomY = 25;
 			var $footer = $( "#wb-info" );
+			
+			// Add some white space over the footer for the bubble to sit
+			$footer.addClass( "im-mrgn" );
 
 			if ( $( window ).scrollTop() >= $( document ).outerHeight() - $( window ).outerHeight() - $footer.outerHeight() ) {
 					$html.css( {
