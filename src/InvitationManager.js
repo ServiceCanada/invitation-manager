@@ -623,7 +623,7 @@ function imSetup() {
 			if (e.target.id === "survey-no")
 			{	
 				setTimeout( function() {
-					$("#wb-cont").trigger("focus");
+					$("#wb-tphp").trigger("focus");
 				},1000);	
 			}	
 		}
@@ -634,7 +634,7 @@ function imSetup() {
 			if (e.target.id === "close-im")
 			{	
 				setTimeout( function() {
-					$("#wb-cont").trigger("focus");
+					$("#wb-tphp").trigger("focus");
 				},1000);	
 			}	
 		}
