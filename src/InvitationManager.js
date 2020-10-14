@@ -596,8 +596,8 @@ function imSetup() {
 		
 		
 			// add to remove added classes to overlay when closing
-			$html
-					.removeClass( "open" );
+			$html.removeClass( "open" );
+			$("#first-focus").remove();
 					
 					
 		  	// Set a flag to indicate the overlay is closing.
@@ -648,12 +648,12 @@ function imSetup() {
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
 		if (wb_im.lang === "fr")
 		{
-			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
-			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Passer au Gestionnaire des Invitations</a></li> ");
+			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc visible-md visible-lg'>" +
+			"<a  class='wb-sl' href='#gc-im-popup'>Passer au Gestionnaire des Invitations</a></li> ");
 		}
 		else {
-			$( "#wb-tphp" ).prepend("<li  class='wb-slc visible-md visible-lg'>" +
-			"<a id='first-focus'  class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
+			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc visible-md visible-lg'>" +
+			"<a   class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
 		}
 		
 		// trigger the init and open event of the overlay
