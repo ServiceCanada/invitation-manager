@@ -558,13 +558,13 @@ function imSetup() {
 	function invite(survey) {	
 	
 		var html =  
-		"<aside id='gc-im-popup' class='asideBody gc-im-wb-overlay modal-content gc-im-overlay-def wb-popup-mid shadow' tabindex='-1'>" +
-			"<header class='modal-header'>" +
-				"<div class='modal-title'>" + survey["title-" + wb_im.lang] + 
-					"<button id='close-im' type='button' class='gc-im-overlaydef closeIcon zoomX' aria-label='Close'>&times;</button>" +
+		"<aside id='gc-im-popup' class='asideBody gc-im-wb-overlay gc-im-modal-content gc-im-overlay-def gc-im-wb-popup-mid shadow' tabindex='0' >" +
+			"<header class='gc-im-modal-header'>" +
+				"<div class='gc-im-modal-title'>" + survey["title-" + wb_im.lang] + 
+					"<button id='close-im' type='button' class='gc-im-overlaydef closeIcon zoomX' aria-label='Close' >&times;</button>" +
 				"</div>" + // for the close icon
 			"</header>" +
-			"<div class='modal-body'>" +
+			"<div class='gc-im-modal-body'>" +
 				survey["body-" + wb_im.lang] +
 				"<ul class='list-inline mrgn-tp-md'>" +
 					"<li class='mrgn-tp-md marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb_im.lang] + "' target='_blank'>" + survey["yes-" + wb_im.lang] + "</a></li> " + 
@@ -572,7 +572,7 @@ function imSetup() {
 				"</ul>" +
 				"<input type='hidden' name='popupName' value='" + survey["title-en"] + "'>" +
 			"</div>" +
-			"<div class='modal-footer  hidden'>" +
+			"<div class='gc-im-modal-footer  hidden'>" +
 		
 			"</div>" +
 		"</aside>",
@@ -623,7 +623,7 @@ function imSetup() {
 			if (e.target.id === "survey-no")
 			{	
 				setTimeout( function() {
-					$("#first-focus").trigger("focus");
+					$("#wb-cont").trigger("focus");
 				},1000);	
 			}	
 		}
@@ -634,7 +634,7 @@ function imSetup() {
 			if (e.target.id === "close-im")
 			{	
 				setTimeout( function() {
-					$("#first-focus").trigger("focus");
+					$("#wb-cont").trigger("focus");
 				},1000);	
 			}	
 		}
@@ -649,31 +649,21 @@ function imSetup() {
 		if (wb_im.lang === "fr")
 		{
 			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
-			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Passer au gestionnaire des invitations</a></li> ");
+			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Passer au Gestionnaire des Invitations</a></li> ");
 		}
 		else {
-			$( "#wb-tphp" ).prepend("<li class='wb-slc visible-md visible-lg'>" +
-			"<a id='first-focus' class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
+			$( "#wb-tphp" ).prepend("<li  class='wb-slc visible-md visible-lg'>" +
+			"<a id='first-focus'  class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
 		}
 		
 		// trigger the init and open event of the overlay
 		$( "#gc-im-popup" ).trigger( "wb-init.gc-im-wb-overlay" );
 		$( "#gc-im-popup" ).trigger( "open.gc-im-wb-overlay" );
 		
-		// if there is a close button in certain screens then hide it
-
-		//$("#hdrClose").css('display', 'none'); 
-		//$("#hdrClose").css('visibility','hidden');
 		
-		
-		// Set the focus on the "Skip to Invitation Manager Popup" link
-		/*setTimeout( function() {
-			$("#first-focus").trigger("focus");
-		},1000);
-		*/
-
 		// Correct popup positionning on load, on resize an on Y scroll if necessary
 		$( window ).on( "resize scroll", function() {
+			
 			
 			// Equals to popup default bottom value in CSS
 			var bottomY = 25;
@@ -681,6 +671,7 @@ function imSetup() {
 			
 			// Add some white space over the footer for the bubble to sit
 			$footer.addClass( "im-mrgn" );
+			
 
 			if ( $( window ).scrollTop() >= $( document ).outerHeight() - $( window ).outerHeight() - $footer.outerHeight() ) {
 					$html.css( {
@@ -702,6 +693,7 @@ function imSetup() {
 	function dbUrlFromJson() {
 		
 		// find the path of the current javascript file "InvitationManager.js"
+		
 		var scripts = document.getElementsByTagName("script"),
 		i = 0,
 		path = "";

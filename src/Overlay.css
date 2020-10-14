@@ -30,7 +30,7 @@
 	 padding: 0 44px 0 1em;
 }
 
- .gc-im-overlay-def .modal-title {
+ .gc-im-overlay-def .gc-im-modal-title {
 	 font-size: 1.15em;
 	 padding: 10px 0;
 }
@@ -41,7 +41,7 @@
 /**********************************************************************/
 
  
-.wb-popup-mid { 
+.gc-im-wb-popup-mid { 
 	border-radius: 6px;
 	left: auto;
 	margin: 0 25px;
@@ -52,24 +52,24 @@
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-	.wb-popup-mid {
+	.gc-im-wb-popup-mid {
 		width: 40%;
 	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-	.wb-popup-mid {
+	.gc-im-wb-popup-mid {
 		width: 60%;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.wb-popup-mid {
+	.gc-im-wb-popup-mid {
 		width: 90%;
 	}
 }
 
-.modal-body {
+.gc-im-modal-body {
 	padding: 15px;
 }
 
@@ -85,7 +85,7 @@
 	float: right; 	
 }
 
-.modal-content{ 
+.gc-im-modal-content{ 
 	position: fixed; 
 	outline: 0;
 }
