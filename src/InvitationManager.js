@@ -598,7 +598,7 @@ function imSetup() {
 			// add to remove added classes to overlay when closing
 			$html.removeClass( "open" );
 			$("#first-focus").remove();
-					
+			$( "#wb-info" ).removeClass( "im-mrgn" );		
 					
 		  	// Set a flag to indicate the overlay is closing.
 		  	// Needed to prevent IE11 (possibly also IE8-10/Edge) from failing to return 
@@ -669,8 +669,14 @@ function imSetup() {
 			var bottomY = 25;
 			var $footer = $( "#wb-info" );
 			
-			// Add some white space over the footer for the bubble to sit
-			$footer.addClass( "im-mrgn" );
+			if (!$html.is(":hidden"))
+			{
+				// Add some white space over the footer for the popup to sit
+				$footer.addClass( "im-mrgn" );
+			}
+			else{
+				$footer.removeClass( "im-mrgn" );
+			}
 			
 
 			if ( $( window ).scrollTop() >= $( document ).outerHeight() - $( window ).outerHeight() - $footer.outerHeight() ) {
