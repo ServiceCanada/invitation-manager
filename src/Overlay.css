@@ -49,6 +49,9 @@
 	top: auto;
 	width: 35%;
 	bottom: 5%;
+	
+	/* let it scroll */
+	overflow: auto;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
