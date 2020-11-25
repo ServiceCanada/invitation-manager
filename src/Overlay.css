@@ -49,11 +49,8 @@
 	top: auto;
 	width: 35%;
 	bottom: 5%;
-	
-	/* let it scroll */
-	/*overflow: auto; */
-	
-	/* OR -- flexible height */
+		
+	/* flexible height */
 	max-height: 100%;
 }
 
