@@ -52,6 +52,9 @@
 	
 	/* let it scroll */
 	overflow: auto;
+	
+	/* OR -- flexible height */
+	max-height: 100%;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
