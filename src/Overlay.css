@@ -51,7 +51,7 @@
 	bottom: 5%;
 	
 	/* let it scroll */
-	overflow: auto;
+	/*overflow: auto; */
 	
 	/* OR -- flexible height */
 	max-height: 100%;
