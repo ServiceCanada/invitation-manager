@@ -46,13 +46,13 @@
 	left: auto;
 	margin: 0 25px;
 	right: 0;
-	top: auto;
+	/*top: auto;*/
 	width: 35%;
 	bottom: 5%;
 		
 	/* flexible height */
 	max-height: 100%;
-	margin-top: auto;
+	top: 0;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
