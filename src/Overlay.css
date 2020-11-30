@@ -52,7 +52,7 @@
 		
 	/* flexible height */
 	max-height: 100%;
-	height: auto;
+	margin-top: auto;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
