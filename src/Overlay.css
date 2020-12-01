@@ -48,7 +48,7 @@
 	right: 0;
 	top: auto;
 	width: 35%;
-	bottom: 5% !important;
+	bottom: 5%;
 		
 	/* flexible height */
 	max-height: 100%;
@@ -70,6 +70,12 @@
 @media screen and (max-width: 767px) {
 	.gc-im-wb-popup-mid {
 		width: 90%;
+	}
+}
+
+@media screen and (max-high: 500px) {
+	.gc-im-wb-popup-mid {
+		bottom: 5% !important;
 	}
 }
 
