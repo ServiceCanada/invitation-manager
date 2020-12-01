@@ -49,7 +49,6 @@
 	top: auto;
 	width: 35%;
 	bottom: 5%;
-	/*bottom: 25px;*/
 		
 	/* flexible height */
 	max-height: 90%;
@@ -74,12 +73,6 @@
 	}
 }
 
-/*@media screen and (max-high: 500px) {
-	.gc-im-wb-popup-mid {
-		bottom: 5% !important;
-	}
-}
-*/
 .gc-im-modal-body {
 	padding: 15px;
 }
