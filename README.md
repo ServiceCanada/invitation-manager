@@ -13,6 +13,8 @@ An invitation popup will always contain the following information:
 4.	A clickable “No” button for visitors declining to participate in the survey study
 
 # How to Download and Install the Invitation Manager?
+[Download the invitation manager Zip file](https://servicecanada.github.io/invitation-manager/invitation-manager.zip)
+
 This installation guide outlines the step-by-step process on how to download, install, and test the GC Invitation Manager tool. The Invitation Manager is a custom web tool that when installed on your server(s) will allow the ability to create, manage and insert gcweb invitation popups on your website(s).
 Any department website(s) currently on boarded to Canada.ca and using AEM as their CMS should not use this invitation manager installation, but instead use the AEM solution currently in place.
 
