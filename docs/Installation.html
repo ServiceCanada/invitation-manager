@@ -1,0 +1,91 @@
+<html>
+<head>
+</head>
+<body>
+<h1>Invitation Manager Installation Manual</h1>
+<h2>What is the GC Invitation Manager?</h2>
+<p>The GC Invitation Manager is a software that can be installed on any of Government of Canada Web server(s) and is designed to trigger and manage invitation popups across your GC web site. The GC Invitation Popup is a customizable popup window that will appear on designated pages within your GC web site prompting the visitor to complete a survey study.
+<br/>
+An invitation popup will always contain the following information:
+<ol>
+<li>The title of the website survey study you wish for visitors to participate in</li>
+<li>A small description of the survey study</li>
+<li>A clickable “Yes” button for visitors accepting to participate in the survey study</li>
+<li>A clickable “No” button for visitors declining to participate in the survey study</li>
+</ol>
+</p>
+
+<h2>How to Download and Install the Invitation Manager?</h2>
+<p>
+This installation guide outlines how to download and install the GC Invitation Manager tool.
+The Invitation Manager is a custom web tool that when installed on your server(s) will allow the ability to create, 
+manage and insert gcweb invitation popups on your website(s). 
+<p/>
+<h3>Downloading the installation files</h3>
+<p>
+<a href="https://servicecanada.github.io/invitation-manager/invitation-manager.zip" download>Download the Invitation Manager Zipfie</a>
+</p>
+<h3>Preparing to install</h3>
+<ol>
+<li>Unzip the downloaded file</li>
+<li>copy the invitation-manager folder and its content to the GC web server.  Note that if your server is not using jQuery library version 2.2.4 or higher you will need to update this.</li>
+</ol>
+<h3>Installation setup</h3>
+<ol>
+<li>Open the “config.json” file in the “invitation-manager” folder and locate the dbURL parameter. This value allows the “config.json” file to reference the “im.json” file and can be updated when a new “im.json” file is created or moved. For the initial installation, the value should equal the path of the “im.json” file.<br/>
+Example: "im.json"
+</li>
+<li>Open the “im.json” file. This file is the data source of the Invitation Manager tool and will need to be updated with your departmental data and customized for your web server. Update the following parameters:
+<ul>
+<li>“duration-delay” value contains the minimal number of days a visitor will see their next popup invitation when visiting your site(s). You can put any number greater than zero.<br/>
+For example, put 15 for fifteen days.
+</li>
+<li>“page-probability” value contains the rolling probability a visitor will see page level popup invitations. <br/>
+For example, put 0.7 for 70%.</li>
+<li>“site-probability” value contains the rolling probability a visitor will see a site level popup invitations. <br />
+For example, put 0.3 for 30%. Notice that the sum of page-probability and site-probability is equal to 1</li>
+<li>“blacklist” value contains an array of URLs that represent the blacklist. They are the URLS you exclude from receiving the invitation popup.</li>
+<li>“whitelist” value contains an array of URLs that represent the whitelist. A list of server domains and/or URLS that you want the popup invitation to execute.</li>
+</ul>
+</li>
+</ol>
+<h3>Creating a Popup</h3>
+<p>In order for the Invitation Manager to be functional, you will have to refer to the next section “How to Configure the JSON File that contains all Invitation Manager Surveys?”.
+</p>
+<h3>Updating the HTML of your web page(s)</h3>
+<p>Each page on your website must be updated with the following html links in order to reference the invitation manager files.
+<ol>
+<li>Add an html link to the “Overlay.css” file to the of your web page</li>
+<li>Add html links to the “Overlay.js”, and “InvitationManager.js” files before the closing of your web page.</li>
+</ol>
+</p>
+<h2>How to Configure the JSON File that contains all Your Invitation Manager Surveys?</h2>
+<p>By opening the im.json file you will be able to add, update, or delete an invite in your server.</p>
+<h2>Adding an Invite</h2>
+<p>
+To create a new invite, add an item to the “surveys” array in the im.json file that contains the following data parameters:
+<ul>
+<li>“id” value contains the id of the survey (example “4”).</li>
+<li>“title-en” value contains the title in English for the popup invitation.</li>
+<li>“title-fr” value contains the title in French for the popup invitation.</li>
+<li>“body-en” value contains the formatted html for the English content: body of the popup invitation.</li>
+<li>“body-fr” value contains the formatted html for the French content: body of the popup invitation.</li>
+<li>“link-en” value contains the link to the survey in English when the user selects the yes button.</li>
+<li>“link-fr” value contains the link to the survey in French when the user selects the yes button.</li>
+<li>“start-on” value contains the start date of the popup invitation.</li>
+<li>“end-on” value contains the end date of the popup invitation.</li>
+<li>“type” value contains the scope of the survey: “Entire site” if the popup invitation is site scoped and “Page” if the popup invitation is page scoped.</li>
+<li>“probability” value contains the probability of a visitor viewing the popup invitation in its scope. That means that the sum of all popup invitations of the same scope cannot exceed 1.</li>
+<li>“yes-en” value contains the formatted html for the English content: yes button of the popup invitation.</li>
+<li>“yes-fr” value contains the formatted html for the French content: yes button of the popup invitation</li>
+<li>“no-en” value contains the formatted html for the English content: no button of the popup invitation</li>
+<li>“no-fr” value contains the formatted html for the French content: no button of the popup invitation.</li>
+<li>“close-en” value contains the English text of the close icon or escape key.</li>
+<li>“close-fr” value contains the French text of the close icon or escape key.</li>
+<li>“name” value contains the survey name.</li>
+<li>“survey-urls” value contains either an array of “site” URLs if the survey scope is site, or an array of “url” URLs if the survey scope is page.</li>
+
+</ul>
+</p>
+</body>
+</html>
