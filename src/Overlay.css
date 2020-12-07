@@ -71,7 +71,7 @@
 	.gc-im-wb-popup-mid {
 		width: 90%;
 	}
-	.wb-slc .wb-sl {
+	#first-focus {
 		display: inline-block;
 	}
 }
