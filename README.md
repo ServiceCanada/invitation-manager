@@ -48,11 +48,11 @@ Notice that the sum of page-probability and site-probability is equal to 1
 In order for the Invitation Manager to be functional, you will have to refer to the next sections “How to Configure the JSON File that contains all Invitation Manager Surveys?” and "How the Invitation Manager Work?".
 ## Updating the HTML of your web page(s)
 Each page on your website must be updated with the following html links in order to reference the invitation manager files.
-1.	Add an html link to the “Overlay.css” file to the <head> of your web page
+1.	Add an html link to the “Overlay.css” file to the head of your web page
     * Example: 
         * link rel="stylesheet" href="/invitation-manager/Overlay.css" 
   
-2.	Add html links to the “Overlay.js”, and “InvitationManager.js” files before the closing <body> of your web page.
+2.	Add html links to the “Overlay.js”, and “InvitationManager.js” files before the closing body of your web page.
     * Example:
         * <script src="/invitation-manager/Overlay.js"></script>
         * <script src="/invitation-manager/InvitationManager.js"></script>
@@ -88,15 +88,6 @@ You can update any data excluding the “id” field of the corresponding item i
 ## Remove an invite
 To remove an invite permanently from your server, you have just to delete the corresponding item in the “surveys” array of the im.json file.
 Notice that you can manage the survey activity by just modifying the “start-on” and “end-on” date values.
-
-# Add the Invitation Manager code to your website pages
-Each page on your website must be updated with the following html code in order to reference the invitation manager files.
-1.	Link the “Overlay.css” file to the head.  
-	* Example: <link rel="stylesheet" href="/invitation-manager/Overlay.css">
-2.	Link the “Overlay.js”, and “InvitationManager.js” files before the closing body.
-	* Example:
-		<script src="/invitation-manager/Overlay.js"></script>
-		<script src="/invitation-manager/InvitationManager.js"></script>
 
 # How does the Invitation Manager work?
 Once properly installed on your web server, the GC Invitation Manager script will run in the background of your GC web site, and is triggered once a visitor enters the GC website. Upon entry, the visitor is assessed against specific criteria to determine whether the visitor qualifies for a popup invitation.
