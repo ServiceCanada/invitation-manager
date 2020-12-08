@@ -13,36 +13,23 @@ An invitation popup will always contain the following information:
 4.	A clickable “No” button for visitors declining to participate in the survey study
 
 # How to Download and Install the Invitation Manager?
-[Download the invitation manager Zip file](https://servicecanada.github.io/invitation-manager/invitation-manager.zip)
-
-This installation guide outlines the step-by-step process on how to download, install, and test the GC Invitation Manager tool. The Invitation Manager is a custom web tool that when installed on your server(s) will allow the ability to create, manage and insert gcweb invitation popups on your website(s).
-Any department website(s) currently on boarded to Canada.ca and using AEM as their CMS should not use this invitation manager installation, but instead use the AEM solution currently in place.
-
-## Downloading the installation Files
-Download the following files to your local drive:
-* From src folder
-    * InvitationManager.js
-    * Overlay.js
-    * Overlay.css
-*	From docs folder
-  	* config.json
-    * im.json
-
-To download each file, you can follow these steps (works in Firefox and Chrome browsers):
-1.	Click on the file name to open it in GitHub
-2.	Click “Raw” button. The file will open as a page on your browser
-3.	Right-Click the page and select “Save as …”
-4.	Navigate to the folder where you want to save the file and click “Save”
+[Download the invitation manager Zip file](https://servicecanada.github.io/invitation-manager/invitation-manager.zip) and save it to your local drive.
+Click to open the .zip file or use any tool to un-zip the file and save contents to your local drive.  Within the ZIP file you will find the following:
+* "invitation-manager" folder:
+	* InvitationManager.js
+	* Overlay.js
+	* Overlay.css
+	* config.json
+	* im.json
 
 # Installing the GC Invitation Manager
 
 ## Preparing to install
-1.	Create a new folder on the root of your server and give it the name “invitation-manager”. This step may require access to an ftp server. If you do not have access, please get in touch with your development/IT team.
-2.	Copy and paste the downloaded files (InvitationManager.js, Overlay.js, Overlay.css, config.JSON, and im.json) into the newly created “invitation-manager” folder.
+Copy the “invitation-manager” folder and its content (InvitationManager.js, Overlay.js, Overlay.css, config.JSON, and im.json) to your web server. This step may require access to an ftp server. If you do not have access, please get in touch with your development/IT team.
 Note that if your server is not using jQuery library version 2.2.4 or higher you will need to update this. 
 
 ## Installation setup
-1.	Create a folder “invitation-manager” in the root of your server and put all the downloaded files in it.
+1.	Decide where you want to save the im.json file. Consider easy access for whomever will be creating/editing/removing the pop-ups. If you would like for it to remain in the invitation-manager folder, no action is required. Otherwise, move the file now.
 2.	Open the “config.json” file in the “invitation-manager” folder and locate the dbURL parameter. This value allows the “config.json” file to reference the “im.json” file and can be updated when a new “im.json” file is created or moved. For the initial installation, the value should equal the path of the “im.json” file.
   * Example: “/invitation-manager/im.json”.
 3.	Open the “im.json” file. This file is the data source of the Invitation Manager tool and will need to be updated with your departmental data and customized for your web server.
@@ -101,6 +88,15 @@ You can update any data excluding the “id” field of the corresponding item i
 ## Remove an invite
 To remove an invite permanently from your server, you have just to delete the corresponding item in the “surveys” array of the im.json file.
 Notice that you can manage the survey activity by just modifying the “start-on” and “end-on” date values.
+
+# Add the Invitation Manager code to your website pages
+Each page on your website must be updated with the following html code in order to reference the invitation manager files.
+1.	Link the “Overlay.css” file to the head.  
+	* Example: <link rel="stylesheet" href="/invitation-manager/Overlay.css">
+2.	Link the “Overlay.js”, and “InvitationManager.js” files before the closing body.
+	* Example:
+		<script src="/invitation-manager/Overlay.js"></script>
+		<script src="/invitation-manager/InvitationManager.js"></script>
 
 # How does the Invitation Manager work?
 Once properly installed on your web server, the GC Invitation Manager script will run in the background of your GC web site, and is triggered once a visitor enters the GC website. Upon entry, the visitor is assessed against specific criteria to determine whether the visitor qualifies for a popup invitation.
