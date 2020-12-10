@@ -648,11 +648,11 @@ function imSetup() {
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
 		if (wb_im.lang === "fr")
 		{
-			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc visible-md visible-lg'>" +
+			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc'>" +
 			"<a  class='wb-sl' href='#gc-im-popup'>Passer au Gestionnaire des Invitations</a></li> ");
 		}
 		else {
-			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc visible-md visible-lg'>" +
+			$( "#wb-tphp" ).prepend("<li id='first-focus' class='wb-slc'>" +
 			"<a   class='wb-sl' href='#gc-im-popup'>Skip to Invitation Manager Popup</a></li> ");
 		}
 		
