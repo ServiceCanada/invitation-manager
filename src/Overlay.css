@@ -204,6 +204,12 @@ a.gc-im-btn {
     border-width: 2px;
 }
 
+#gc-im-popup:focus {
+	border-color: #F0F0F0;
+    border-style: outset; 
+    border-width: 4px;
+}
+
 #gc-im-popup p{
 	/*margin:0 0 0 0;*/
 	color: #000000;
