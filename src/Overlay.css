@@ -205,9 +205,9 @@ a.gc-im-btn {
 }
 
 #gc-im-popup:focus {
-	border-color: #F0F0F0;
+	border-color: black;
     border-style: outset; 
-    border-width: 4px;
+    border-width: 3px;
 }
 
 #gc-im-popup p{
