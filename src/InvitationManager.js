@@ -98,10 +98,12 @@ function imSetup() {
 			consoleLog("User has seen an invitation already");
 
 			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));
+			downloadSurveyDB();
 			if (isStorageExpired(lastDateIMShown)) {
+				
 				localStorage.removeItem("lastDateIMShown");
 				
-				downloadSurveyDB(); 
+				//downloadSurveyDB(); 
 				
 				mainPart2();
 			}
