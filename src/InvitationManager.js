@@ -87,7 +87,7 @@ function imSetup() {
 				consoleLog("downloadSurveyDB");
 				downloadSurveyDB();
 				
-				mainPart2();
+				//mainPart2();
 
 				// Asynchronous call, do not execute code here
 			}
@@ -99,16 +99,16 @@ function imSetup() {
 		else {
 			consoleLog("User has seen an invitation already");
 
-			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));
+			//var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));
 			downloadSurveyDB();
-			if (isStorageExpired(lastDateIMShown)) {
+			//if (isStorageExpired(lastDateIMShown)) {
 				
-				localStorage.removeItem("lastDateIMShown");
+				//localStorage.removeItem("lastDateIMShown");
 				
 				//downloadSurveyDB(); 
 				
-				mainPart2();
-			}
+				//mainPart2();
+			//}
 		
 		}
 		// Asynchronous call may have been made, do not execute code here
@@ -125,6 +125,15 @@ function imSetup() {
 		// localStorage was not defined and the json is unfound on the server
 		if (!surveyDB || !surveyDB.settings)
 		 return;
+	 
+		if (localStorage.getItem('lastDateIMShown')) {
+			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));		
+			if (isStorageExpired(lastDateIMShown)) 
+				localStorage.removeItem("lastDateIMShown");
+			else
+				return;
+		}
+		
 
 		// At this point, we don't know if it the was just downloaded or if it was 
 		// retrieved from session storage
@@ -331,7 +340,7 @@ function imSetup() {
 		} )
 		.done( function(result) {
 			surveyDB = JSON.parse(JSON.stringify(result));
-			//mainPart2();
+			mainPart2();
 		} )
 		.fail( function() {
 			consoleLog( "Fail to get JSON File" );
