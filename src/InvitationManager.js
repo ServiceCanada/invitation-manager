@@ -86,6 +86,8 @@ function imSetup() {
 			if (!surveyDB) {
 				consoleLog("downloadSurveyDB");
 				downloadSurveyDB();
+				
+				mainPart2();
 
 				// Asynchronous call, do not execute code here
 			}
@@ -329,7 +331,7 @@ function imSetup() {
 		} )
 		.done( function(result) {
 			surveyDB = JSON.parse(JSON.stringify(result));
-			mainPart2();
+			//mainPart2();
 		} )
 		.fail( function() {
 			consoleLog( "Fail to get JSON File" );
