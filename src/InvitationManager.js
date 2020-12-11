@@ -86,8 +86,6 @@ function imSetup() {
 			if (!surveyDB) {
 				consoleLog("downloadSurveyDB");
 				downloadSurveyDB();
-				
-				//mainPart2();
 
 				// Asynchronous call, do not execute code here
 			}
@@ -99,19 +97,11 @@ function imSetup() {
 		else {
 			consoleLog("User has seen an invitation already");
 
-			//var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));
 			downloadSurveyDB();
-			//if (isStorageExpired(lastDateIMShown)) {
-				
-				//localStorage.removeItem("lastDateIMShown");
-				
-				//downloadSurveyDB(); 
-				
-				//mainPart2();
-			//}
-		
+			
+			// Asynchronous call may have been made, do not execute code here
 		}
-		// Asynchronous call may have been made, do not execute code here
+		
 
 	}
 
@@ -241,23 +231,14 @@ function imSetup() {
 			
 			consoleLog("Select survey " + cpySurveys[selectedSurveyIndex].name);
 
-			// Show survey only if user hasn't seen it last 15 days
-			//var lastDateIMShown;
 			var now = new Date();
 			
-			//if ( localStorage.getItem( "lastDateIMShown" ) ) {
-			//	lastDateIMShown = new Date(localStorage.getItem('lastDateIMShown'));
-			//}
+			// Popup the survey
+			invite(cpySurveys[selectedSurveyIndex]);
 
-			// Persistent cookie duration is the number of days of minimal interval between 2 surveys
-			//if (!isStorageExpired(lastDateIMShown)) {
-
-				// Popup the survey
-				invite(cpySurveys[selectedSurveyIndex]);
-
-				//set the date visitor was invited
-				localStorage.setItem('lastDateIMShown', now);
-			//}
+			//set the date visitor was invited
+			localStorage.setItem('lastDateIMShown', now);
+			
 		}
 		else {
 			consoleLog("No survey selected, " + surveyDB.surveys.length + " surveys remain in session storage");
