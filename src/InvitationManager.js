@@ -128,9 +128,9 @@ function imSetup() {
 	 
 		if (localStorage.getItem('lastDateIMShown')) {
 			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));		
-			if (isStorageExpired(lastDateIMShown)) 
-				localStorage.removeItem("lastDateIMShown");
-			else
+			if (!isStorageExpired(lastDateIMShown)) 
+				//localStorage.removeItem("lastDateIMShown");
+			//else
 				return;
 		}
 		
