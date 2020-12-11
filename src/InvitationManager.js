@@ -128,9 +128,9 @@ function imSetup() {
 	 
 		if (localStorage.getItem('lastDateIMShown')) {
 			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));		
-			if (!isStorageExpired(lastDateIMShown)) 
-				//localStorage.removeItem("lastDateIMShown");
-			//else
+			if (isStorageExpired(lastDateIMShown)) 
+				localStorage.removeItem("lastDateIMShown");
+			else
 				return;
 		}
 		
@@ -242,22 +242,22 @@ function imSetup() {
 			consoleLog("Select survey " + cpySurveys[selectedSurveyIndex].name);
 
 			// Show survey only if user hasn't seen it last 15 days
-			var lastDateIMShown;
+			//var lastDateIMShown;
 			var now = new Date();
 			
-			if ( localStorage.getItem( "lastDateIMShown" ) ) {
-				lastDateIMShown = new Date(localStorage.getItem('lastDateIMShown'));
-			}
+			//if ( localStorage.getItem( "lastDateIMShown" ) ) {
+			//	lastDateIMShown = new Date(localStorage.getItem('lastDateIMShown'));
+			//}
 
 			// Persistent cookie duration is the number of days of minimal interval between 2 surveys
-			if (!isStorageExpired(lastDateIMShown)) {
+			//if (!isStorageExpired(lastDateIMShown)) {
 
 				// Popup the survey
 				invite(cpySurveys[selectedSurveyIndex]);
 
 				//set the date visitor was invited
 				localStorage.setItem('lastDateIMShown', now);
-			}
+			//}
 		}
 		else {
 			consoleLog("No survey selected, " + surveyDB.surveys.length + " surveys remain in session storage");
