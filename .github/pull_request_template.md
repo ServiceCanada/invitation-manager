@@ -15,5 +15,6 @@ Make your own list for the purpose of your Pull request. /// Faites votre propre
 
 **Related issues / Requêtes associées**
 List issues that are being closed or worked on with this pull request i.e. Closes #8 /// Listez les autres requêtes (« issues » ou PR) qui sont fermées ou traitées avec cette demande de retrait ex. : Closes #8
+
 **Screenshots / Captures d'écrans**
 If applicable, add screenshots to help demonstrate what this PR does. /// Si applicable, ajoutez des captures d'écran pour aider à démontrer ce que cette PR fait.
