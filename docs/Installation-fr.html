@@ -1,0 +1,234 @@
+<html>
+<head>
+	<title> Manuel d'Installation du Gestionnaire d'Invitation </title>
+	<style>
+		h1 { color: red;}
+		h2 { font-size: 22px;}
+		h3 { font-size: 20px;}
+		h4 { font-size: 18px;}
+		.small {font-size: 0.7em; }
+		.strong {font-weight: bold;}
+		.bg {background-color: yellow;}
+	
+	</style>
+</head>
+<body>
+<h1>Manuel d'Installation du Gestionnaire d'Invitation - <span class="small">Version non-BOEW</span></h1>
+	<h2>C'est quoi le Gestionnaire d'Invitation du Gouvernement du Canada?</h2>
+		<p>Le Gestionnaire d'Invitation du Gouvernement du Canada est un logiciel qui peut être installer sur n'importe quel serveur web du Gouvernement du Canada et il est conçu pour déclencher et gérer des invitations contextuelles à travers votre site web du Gouvernement du Canada. L'invitation contextuelle du Gouvernement du Canada est une fenêtre contextuelle personnalisable qui apparaitra sur les pages désignées de votre site Web du Gouvernement du Canada incitant le visiteur à répondre à un sondage.
+			<br/>
+			<br/>
+			L'invitation contextuelle contiendra toujours les informations suivantes:
+			<ol>
+				<li>Le titre du site de sondage dont vous souhaitez la participation des visiteurs </li>
+				<li>Une petite description du sondage</li>
+				<li>Un bouton “Oui” cliquable pour les visiteurs acceptant de participer au sondage</li>
+				<li>Un bouton “Non” cliquable pour les visiteurs refusant de participer au sondage</li>
+			</ol>
+		</p>
+
+	<h2>Comment télécharger et installer le Gestionnaire d'Invitation?</h2>
+		<h3>Présentation</h3>
+			<p>Le présent guide d’installation décrit le processus étape par étape sur la façon de télécharger, d’installer et de mettre à l’essai la version non liée à la Boîte à outils de l’expérience Web (BOEW) du Gestionnaire d’invitation du gouvernement du Canada.<br/>
+				Le Gestionnaire d’invitation est un outil qui, une fois installé sur votre site Web, vous permettra de créer et de gérer des invitations contextuelles sur votre site Web.<br/>
+				Tout ministère actuellement intégré à Canada.ca et qui utilise Adobe Experience Manager (AEM) comme SGC n’a pas besoin de cette version de l’installation du Gestionnaire d’invitation, car il peut utiliser le Gestionnaire d’invitation actuellement en place sur Canada.ca par l’entremise du <a href="http://requestform.portal.gc.ca/billets.html">Bureau de service de l’Éditeur principal</a>.
+			</p>
+
+		<h3>Télécharger les fichiers d'installation</h3>
+		<p>
+			Cliquez ce lien pour télécharger l'outil du gouvernement du Canada  du Gestionnaire d'Invitation:
+			<a href="https://servicecanada.github.io/invitation-manager/invitation-manager.zip" download>Télécharger le fichier Zip du Gestionnaire d'Invitation</a>
+			<br />
+			Cliquez pour ouvrir le fichier .zip ou utilisez n’importe quel outil pour décompresser le fichier et enregistrer son contenu sur votre lecteur local. Dans le fichier ZIP vous trouverez ce qui suit:
+			<ul>
+				<li>
+					Dossier “invitation-manager” :
+					<ul>
+						<li>InvitationManager.js</li>
+						<li>Overlay.js</li>
+						<li>Overlay.css</li>
+						<li>config.json</li>
+						<li>im.json</li>
+					
+					</ul>
+				</li>
+			</ul>
+			
+		</p>
+		<h3>Installer le Gestionnaire d’invitation du gouvernement du Canada</h3>
+			<h4>Avant de commencer</h4>
+				<p><span class="strong">Exigences du système:</span> Si votre serveur n’utilise pas la version 2.2.4 ou une version supérieure de la bibliothèque jQuery, vous devrez la mettre à jour.  </p>
+				<p><span class="strong">Remarque sur les environnements de simulation et de production:</span> Nous vous recommandons de suivre ce processus pour la simulation ou le développement de votre site avant de le dupliquer sur votre site de production. Si vous n’avez pas accès à un site Web de simulation ou de développement, vous n’avez qu’à suivre les mêmes étapes pour votre site Web de production, sous réserve que tout changement apporté soit affiché sur votre site. </p>
+			<h4>Télécharger des fichiers sur votre serveur</h4>
+				<p>Copiez et collez le dossier  “invitation-manager” (y compris son contenu : InvitationManager.js, Overlay.js, Overlay.css, config.json et im.json) n’importe où dans votre serveur Web. Une fois téléchargés, ces fichiers peuvent demeurer sur votre site Web et n’auront aucune incidence sur le rendement de votre site. L’expérience du visiteur ne sera touchée que lorsqu’une invitation instantanée sera activée.</p>
+			<h4>Configurer vos paramètres</h4>
+				<ol>
+					<li>Décidez où vous voulez enregistrer le fichier im.json. Envisager un accès facile pour quiconque créera, modifiera ou supprimera les invitations contextuelles. Si vous souhaitez qu’il reste dans le dossier Gestionnaire d’invitation, aucune mesure n’est requise. Sinon, déplacez le fichier maintenant.</li>
+						<br />
+					<li>Ouvrir le fichier “config.json” dans le dossier “invitation-manager” et localiser le paramètre dbURL. La valeur doit correspondre au chemin du fichier “im.json” que vous avez déterminé à l’étape 1.
+						<br/>
+						Example: “/invitation-manager/im.json”.
+						<br />
+						&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+					</li>
+						<br/>
+					<li>Ouvrez le fichier “im.json”. Ce fichier est la source de données de l’outil Gestionnaire d’invitation et vous permettra de créer, de personnaliser, d’activer et de désactiver toutes les invitations contextuelles. Ce fichier devra être mis à jour avec les données de votre ministère et personnalisé pour votre site Web. 
+					<br/><br/>Le fichier “im.json” est composé de deux sections:
+					<br/><br />
+						<ol type="a">
+							<li><span class="strong">Paramètres généraux: </span>cette section permet de personnaliser les paramètres généraux de l’application de l’outil Gestionnaire d’invitation. Les paramètres suivants devront être mis à jour:
+								<ul>
+									<li>La valeur <span class="strong">“duration-delay” </span>contient le nombre de jours entre le moment où le visiteur a vu l’invitation contextuelle originale et le moment où il verra la prochaine invitation contextuelle sur votre site. Ce nombre doit être supérieur à zéro et inférieur ou égal à 365.
+										<br />&nbsp;&nbsp;Nous recommandons 15 jours.
+									</li>
+									<li>
+										La valeur <span class="strong">“page-probability” </span>contient la probabilité de roulement qu’un visiteur voit des invitations contextuelles au niveau de la page. Ce nombre doit être supérieur à 0,0 et inférieur ou égal à 1,0. De plus, la somme de la probabilité de la page et du site ne doit pas dépasser 1,0 (pour 100 %).
+										<br />&nbsp;&nbsp;Nous recommandons 0,7 (pour 70 %). 
+									</li>
+									<li>
+										La valeur <span class="strong">“site-probability” </span>contient la probabilité de roulement qu’un visiteur verra des invitations contextuelles au niveau du site. Ce nombre doit être supérieur à 0,0 et inférieur ou égal à 1,0. De plus, la somme de la probabilité de la page et du site ne doit pas dépasser 1,0 (pour 100 %).
+										<br />&nbsp;&nbsp;Nous recommandons 0,3 (pour 30 %).
+									</li>
+									<li>
+										La valeur <span class="strong">“blacklist” </span> contient un tableau d’URL qui représentent la liste noire. Il s’agit des adresses URL des pages sur lesquelles vous ne voulez pas que des invitations contextuelles s’affichent. 
+										<br />Ajoutez chaque URL au tableau en suivant l’exemple de syntaxe ci-dessous: 
+										<br />
+										<code>
+											&nbsp;&nbsp;"blacklist": [ <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "www.canada.ca/en/blacklistexample1.html" }, <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "www.canada.ca/en/blacklistexample2.html" }, <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "www.canada.ca/en/blacklistexample3.html" } <br />
+											&nbsp;&nbsp;],
+										</code>
+									</li>
+									<li>
+										La valeur <span class="strong">“whitelist” </span> contient un tableau d’URL qui représentent la liste blanche. Liste des domaines de serveur ou des URL sur lesquels vous souhaitez que les invitations contextuelles s’affichent.
+										<br/>Ajoutez chacun de vos domaines au tableau en suivant l’exemple de syntaxe ci-dessous: <br />
+										<code>
+											&nbsp;&nbsp;"whitelist": [ <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "^www.canada.ca\/" }, <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "^www1.canada.ca\/" }, <br />
+											&nbsp;&nbsp;&nbsp;&nbsp;{ "url" : "^servicecanada.gc.ca\/" } <br />
+											&nbsp;&nbsp;],
+										</code>
+									</li>
+								</ul>
+							</li>
+							<br/>
+							<li><span class="strong">Sondages:</span> cette section comprend les paramètres utilisés pour créer ou personnaliser le fichier html, et pour activer ou désactiver les invitations qui apparaîtront sur votre site.  </li>
+								<ul>
+									<li>La valeur <span class="strong">“id” </span> contient l'identificateur du sondage (exemple “4”).</li>
+									<li>La valeur <span class="strong">“title-en” </span> contient le titre en anglais pour l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“title-fr” </span>  contient le titre en francais pour l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“body-en” </span>  contient le text formaté en html pour le contenu en anglais: corps de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“body-fr” </span>  contient le text formaté en html pour le contenu en francais: corps de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“link-en” </span>  contient le lien du sondage en anglais quand l'utilisater choisi le bouton Oui.</li>
+									<li>La valeur <span class="strong">“link-fr” </span>  contient le lien du sondage en francais quand l'utilisater choisi le bouton Oui.</li>
+									<li>La valeur <span class="strong">“start-on” </span> contient la date du début de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“end-on” </span>  contient la date de fin de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“type” </span>  contient la portée du sondage: “Entire site” si l'invitation contextuelle est de portée site et “Page” si l'invitation contextuelle est de portée page.</li>
+									<li>La valeur <span class="strong">“probability” </span>  contient la probabilité du visiteur recevant l'invitation contextuelle dans sa portée. cela signifie que la somme de toutes les invitations contextuelles de meme portée ne peut pas dépasser 1. </li>
+									<li>La valeur <span class="strong">“yes-en” </span> contient le text formaté en html pour le contenu anglais: bouton oui de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“yes-fr” </span>  contient le text formaté en html pour le contenu francais: bouton oui de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“no-en” </span>  contient le text formaté en html pour le contenu anglais: bouton non de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“no-fr” </span>  contient le text formaté en html pour le contenu francais: bouton non de l'invitation contextuelle.</li>
+									<li>La valeur <span class="strong">“close-en” </span> contient le text anglais de l'icone de fermeture ou de la touche d'échappement.</li>
+									<li>La valeur <span class="strong">“close-fr” </span>  contient le text francais de l'icone de fermeture ou de la touche d'échappement.</li>
+									<li>La valeur <span class="strong">“name” </span>  contient le nom du sondage.</li>
+									<li>La valeur<span class="strong">“survey-urls” </span>  contient soit un tableau de URLS “site” si le sondage est de portée site, ou bien un tableau de URLS “url” si le sondage est de portée page.</li>
+
+								</ul>
+							</li>
+						</ol>
+					</li>
+				</ol>
+			<h4>Ajouter le code de Gestionnaire d’Invitation à vos pages Web</h4>
+				<p>Chaque page de votre site Web doit être mise à jour avec le code html suivant afin de faire référence aux fichiers du gestionnaire d’invitation.</p>
+				<ol>
+					<li>Ajoter un lien html pour le fichier “Overlay.css” à l’en-tête de vos pages Web <br />
+					<code>
+						&nbsp;&nbsp;&lt;link rel="stylesheet" href="/invitation-manager/Overlay.css"&gt;
+					</code>
+					
+					</li>
+					<br />
+					<li>Ajoutes des liens html pour les fichiers “Overlay.js” et “InvitationManager.js” avant la fermeture du body de vos pages Web. <br />
+					<code>
+						&nbsp;&nbsp;&lt;script src="/invitation-manager/Overlay.js"&gt;&lt;/script&gt; <br />
+						&nbsp;&nbsp;&lt;script src="/invitation-manager/InvitationManager.js"&gt;&lt;/script&gt;
+					</code>
+					</li>
+				
+				</ol>
+		<h3>Mise à l’essai du Gestionnaire d’Invitation</h3>
+			<p>Pour tester votre installation, vous devrez créer et publier une invitation à l’essai. Consultez le Guide de publication du Gestionnaire d’invitation pour obtenir des instructions détaillées sur la façon de procéder pour vos serveurs..</p>
+			<ul>
+				<li><span class="strong">Avant de tester</span>
+					<ul>
+						<li>Identifier le nom d’hôte ou les pages sur lesquelles vous souhaitez tester une invitation. Cela devra être fait à la fois sur vos serveurs de simulation et de production (nous recommandons qu’il s’agisse d’une page avec peu ou pas de trafic).</li>
+						<li>Vous devrez créer une invitation de niveau “page” et une invitation de niveau “site” pour le test.  </li>
+					</ul>
+				</li>
+				<br />
+				<li><span class="strong">Étapes à suivre pour tester :</span>
+					<ol>
+						<li>Publier l’invitation à passer un test
+							<ul><li>
+								Consultez le Guide de publication du Gestionnaire d’invitation pour obtenir des instructions détaillées sur la façon de procéder pour vos serveurs.
+							</li></ul>
+						</li>
+						<br />
+						<li>
+							Générer une chaîne d’interrogations html 
+							<ul><li>
+								En fonction des invitations à l’essai que vous avez créé, modifiez la chaîne d’interrogations URL suivante pour refléter le numéro de sondages et le type de portée que vous avez entrés pour votre invitation à l’enquête: <br />
+								<code>
+								&nbsp;&nbsp;?logim=1&im_scope=<span class="bg">page or site</span>&im_surveyid=<span class="bg">##</span>&im_nocookiecheck=1&im_nodatecheck=1
+								</code>
+							</li></ul>
+
+						</li>
+						<br />
+						<li>Page(s) d’examen<br />
+							Ouvrez votre navigateur et naviguez jusqu’à la page que vous avez incluse dans le tableau des <span class="strong">survey-urls</span>	 de l’invitation et incluez la chaîne d’interrogations URL à la fin: <br />
+							<br />
+							Exemple: <br/>
+							
+							<code>
+								https://exampledomain.com/en/1.html?logim=1&im_scope=page&im_surevyid=1&im_nocookiecheck=1&im_nodatecheck=1
+							</code>
+						</li>
+							<br />
+
+						<li>Revoir l’invitation
+							<ul>
+								<li><span class="strong">L’invitation apparaît:</span>
+									<ol type="a">
+										<li>Si l’invitation apparaît sur votre page Web, vous avez installé avec succès le Gestionnaire d’invitation et publié une invitation au sondage sur votre serveur</li>
+										<li>Assurez-vous d’examiner le texte de l’invitation pour vous assurer qu’il est bien affiché sur votre page Web. </li>
+									</ol>
+									<br />
+								<li><span class="strong">L’invitation n’apparaît pas: </span> <br />
+									Reportez-vous au Guide de publication du Gestionnaire d’invitation pour vous assurer que l’invitation au sondage a été créée et publiée correctement.</li>
+								</li>
+							</ul>
+						</li>
+						<br />
+						<li>Effacez les invitations de test que vous avez créées à partir du fichier “im.json”. </li>
+					</ol>
+				</li>
+			</ul>
+		<h3>Après l’installation </h3>
+			<h4>Publier des invitations contextuelles </h4>
+				<p>Maintenant que le Gestionnaire d’invitation est installé sur votre site Web, vous êtes prêt à commencer à publier des invitations contextuelles. Consultez le Guide de publication du Gestionnaire d’invitation pour obtenir des instructions détaillées. </p>
+			<h4>Obtenir du soutien </h4>
+				<p>Si vous avez de la difficulté avec l’installation et avez besoin d’aide, communiquez avec nous par l’intermédiaire du  <a href="http://requestform.portal.gc.ca/billets.html">Bureau de service de l’éditeur principal</a>, et sélectionnez les catégories suivantes lorsque vous soumettez votre demande: 
+					<ul>
+						<li>Catégorie: Sondages sur les sites Web</li>
+						<li>Sous-catégorie : Gestionnaire d’invitation Soutien </li>
+					</ul>
+				</p>
+
+
+</body>
+</html>
