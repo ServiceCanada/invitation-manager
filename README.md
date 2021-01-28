@@ -5,7 +5,7 @@ Read the [Invitation Manager Installation Manual](https://servicecanada.github.i
 
 ---
 
-# Gestionnaire d'Invitation
+# Gestionnaire d'invitation
 Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exemple](https://servicecanada.github.io/invitation-manager/test-IM/test-fra.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
 Lis le [Manuel d'Installation du Gestionnaire d'Invitation](https://servicecanada.github.io/invitation-manager/Installation-fr.html) pour apprendre comment télécharger et installer l’outil. 
