@@ -64,11 +64,23 @@
 				<ol>
 					<li>Decide where you want to save the im.json file. Consider easy access for whomever will be creating/editing/removing the pop-ups. If you would like for it to remain in the invitation-manager folder, no action is required. Otherwise, move the file now.</li>
 						<br />
-					<li>Open the “config.json” file in the “invitation-manager” folder and locate the dbURL parameter. The value should equal the path of the “im.json” file that you determined in step 1.
-						<br/>
-						Example: “/invitation-manager/im.json”.
-						<br />
-						&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+					<li>Open the “config.json” file in the “invitation-manager” folder and perform these steps:
+						<ol type="a">
+							<li>Locate the dbURL parameter. The value should equal the path of the “im.json” file that you determined in step 1.
+								<br/>
+								Example: “/invitation-manager/im.json”.
+								<br />
+								&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+							</li>
+							<li>Enable tracking of pop-up invitations. If Adobe Analytics is already implemented on your site, you can enable tracking of the invitation manager pop-ups in the “config.json” file. Locate the Adobe parameter, the value should equal “yes” or “no”:
+								<ul>
+									<li>Input <span class="strong">“Adobe”: “no”</span>, if your department site does not have Adobe Analytics tracking implemented or prefer not to enable Adobe Analytics tracking.
+									</li>
+									<li>Input <span class="strong">“Adobe”: “yes”</span>, if your department site has Adobe Analytics tracking implemented and you would like to enable Adobe Analytics tracking.
+									</li>
+								</ul>
+							</li>
+						</ol>
 					</li>
 						<br/>
 					<li>Open the “im.json” file. This file is the data source of the Invitation Manager tool and where you will be able create, customize, activate and deactivate all pop-up invitations. This file will need to be updated with your departmental data and customized for your website. 

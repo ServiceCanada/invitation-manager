@@ -62,13 +62,25 @@
 				<p>Copiez et collez le dossier  “invitation-manager” (y compris son contenu : InvitationManager.js, Overlay.js, Overlay.css, config.json et im.json) n’importe où dans votre serveur Web. Une fois téléchargés, ces fichiers peuvent demeurer sur votre site Web et n’auront aucune incidence sur le rendement de votre site. L’expérience du visiteur ne sera touchée que lorsqu’une invitation instantanée sera activée.</p>
 			<h4>Configurer vos paramètres</h4>
 				<ol>
-					<li>Décidez où vous voulez enregistrer le fichier im.json. Envisager un accès facile pour quiconque créera, modifiera ou supprimera les invitations contextuelles. Si vous souhaitez qu’il reste dans le dossier Gestionnaire d’invitation, aucune mesure n’est requise. Sinon, déplacez le fichier maintenant.</li>
+					<li>Décider où vous voulez enregistrer le fichier im.json. Envisager un accès facile pour quiconque créera, modifiera ou supprimera les invitations contextuelles. Si vous souhaitez qu’il reste dans le dossier Gestionnaire d’invitation, aucune mesure n’est requise. Sinon, déplacez le fichier maintenant.</li>
 						<br />
-					<li>Ouvrir le fichier “config.json” dans le dossier “invitation-manager” et localiser le paramètre dbURL. La valeur doit correspondre au chemin du fichier “im.json” que vous avez déterminé à l’étape 1.
-						<br/>
-						Example: “/invitation-manager/im.json”.
-						<br />
-						&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+					<li>Ouvrir le fichier “config.json” dans le dossier “invitation-manager” et appliquer les étapes suivantes :
+						<ol type="a">
+							<li>Localiser le paramètre dbURL. La valeur doit correspondre au chemin du fichier “im.json” que vous avez déterminé à l’étape 1.
+								<br/>
+								Example: “/invitation-manager/im.json”.
+								<br />
+								&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+							</li>
+							<li>Activer le suivi des invitations contextuelles. Si Adobe Analytics est mis en œuvre sur votre site, vous pouvez activer le suivi des invitations contextuelles du gestionnaire d’invitation dans le fichier “config.json”.  Localiser le paramètre Adobe, la valeur doit être égale “yes” ou “no”:
+								<ul>
+									<li>Entrer <span class="strong">“Adobe” : “no”</span>, si le suivi Adobe Analytics de votre site du département n’est pas mis en œuvre ou vous préfériez ne pas activer le suivi Adobe Analytics.
+									</li>
+									<li>Entrer <span class="strong">“Adobe” : “yes”</span>, si le suivi Adobe Analytics de votre site du département est mis en œuvre et vous préfériez activer le suivi Adobe Analytics.
+									</li>
+								</ul>
+							</li>
+						</ol>
 					</li>
 						<br/>
 					<li>Ouvrez le fichier “im.json”. Ce fichier est la source de données de l’outil Gestionnaire d’invitation et vous permettra de créer, de personnaliser, d’activer et de désactiver toutes les invitations contextuelles. Ce fichier devra être mis à jour avec les données de votre ministère et personnalisé pour votre site Web. 

@@ -1,0 +1,79 @@
+<html>
+<head>
+	<title> Invitation Manager Installation Manual </title>
+	<style>
+		h2 { font-size: 22px;}
+		h3 { font-size: 20px;}
+		h4 { font-size: 18px;}
+		.small {font-size: 0.7em; }
+		.strong {font-weight: bold;}
+		.bg {background-color: yellow;}
+	
+	</style>
+</head>
+<body>
+<h1>Invitation Manager Update from V1.0.0 to V1.1.0 - Enable Pop-Up Tracking</h1>
+
+	<h2>Step 1: Downloading the installation files</h2>
+		<p>
+			Click this link to download the GC Invitation Manager tool:
+			<a href="https://servicecanada.github.io/invitation-manager/invitation-manager.zip" download>Download the Invitation Manager Zip file</a>
+			<br />
+			Click to open the .zip file or use any tool to un-zip the file and save contents to your local drive. Within the ZIP file you will find the following:
+			<ul>
+				<li>
+					“invitation-manager” folder:
+					<ul>
+						<li>InvitationManager.js</li>
+						<li>Overlay.js</li>
+						<li>Overlay.css</li>
+						<li>config.json</li>
+						<li>im.json</li>
+					
+					</ul>
+				</li>
+			</ul>
+			
+		</p>
+	<h2>Step 2: Upload the required files to your server</h2>
+		<p>	
+			The following are the <span class="strong underline">ONLY</span> files that will need to be updated - copy and replace them into the location of the older files:
+			<ol type="1">
+				<li>config.json</li>
+				<li>InvitationManager.js</li>
+			</ol>
+		</p>
+	<h2>Step 3: Configure your settings - Update parameters</h2>
+		<ol type="1">
+			<li><span class="strong">dbURL</span>
+				<p>
+					Open the “config.json” file in the “invitation-manager” folder or in your alternative saved folder and locate the “dbURL” parameter. This parameter value should indicate the location of the im.json file. 
+					<br />
+					Update this to match the value you had in the previous config.json file. If the location of the im.json has changed, then update the value to reflect the new location.
+					<br/>
+					<br/>
+						Example: “/invitation-manager/im.json”.
+					<br />
+						&nbsp;&nbsp; <code>dbURL: "/invitation-manager/im.json"</code>
+				</p>
+			</li>
+			<li><span class="strong">Adobe</span>
+				<p>
+					If Adobe Analytics is already implemented on your site, you can enable tracking of the invitation manager pop-ups in the “config.json” file. Adobe Analytics tracking for the invitation manager is currently available on Version 3, Version 4 and the Run version of the Non-Canada.ca code. If Adobe Analytics is not implemented on your site, you will not be able to benefit from this feature.
+					<br />		
+					Open the “config.json” file in the “invitation-manager” folder or your alternative saved folder, and locate the “Adobe” parameter. The value should equal “yes” or “no”.
+					<ul>
+					<li>Input <code>"Adobe": "no"</code>,  if your department site does not have Adobe Analytics tracking implemented or prefer not to enable Adobe Analytics tracking.</li>
+					<li>Input <code>"Adobe": "yes"</code>, if your department site has Adobe Analytics tracking implemented and you would like to enable Adobe Analytics tracking.</li>
+					</ul>
+				</p>
+			</li>
+		</ol>
+		
+		<br/>
+		<br/>
+		<br/>
+		
+
+</body>
+</html>
