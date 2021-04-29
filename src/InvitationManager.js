@@ -18,6 +18,7 @@ function imSetup() {
 		surveyDB, 		// JSON var of data stored in im.json
 		surveyScope, 	// Equals 1 if survey page and 2 is survey site
 		dbURL, 			// location of im.xml, example "/content/dam/canada/json/im.json"
+		Adobe,			// Equals to yes if Adobe analytics is set
 
 		// The following variables are used for debugging with query string
 		overrideScope = false, 	// Query parameter sets this to a text value to force the scope (page or site)
@@ -175,7 +176,8 @@ function imSetup() {
 		// Check if url on whitelist
 		var list = getObjArr(surveyDB.settings.whitelist),
 			a = document.location, 
-			h = a.hostname + a.pathname, 
+			//h = a.hostname + ":8080" + a.pathname, 
+			h = a.host + a.pathname,
 			didMatch = false;
 
 		if ( !list ) {
@@ -197,7 +199,8 @@ function imSetup() {
 		// Check if url is on blacklist
 		var list = getObjArr(surveyDB.settings.blacklist), 
 			a = document.location, 
-			h = a.hostname + a.pathname;
+			//h = a.hostname + a.pathname;
+			h = a.host + a.pathname;
 
 		for (var i = 0; i < list.length; i++) {
 			var l = list[i].url;
@@ -455,7 +458,8 @@ function imSetup() {
 		// those ones are removed and not tested on future pages in the visit
 		
     	var surveySubList = {};
-		var url = document.location.hostname + document.location.pathname;
+		//var url = document.location.hostname + document.location.pathname;
+		var url = document.location.host + document.location.pathname;
 		var count = 0;
 		
 		for (var i = 0; i < surveyDB.surveys.length; i++) {
@@ -549,7 +553,17 @@ function imSetup() {
 	/*
 	 * Display the popup given the survey parameters
 	 */
-	function invite(survey) {	
+	function invite(survey) {
+
+		var popupInput
+		if (Adobe.toLowerCase() == "yes")
+		{
+			popupInput = "<input type='hidden' name='popupName' value='" + survey["name"] + "'>" 
+		}
+		else
+		{
+			popupInput = "" 
+		}
 	
 		var html =  
 		"<aside id='gc-im-popup' class='asideBody gc-im-wb-overlay gc-im-modal-content gc-im-overlay-def gc-im-wb-popup-mid shadow' tabindex='0' >" +
@@ -564,7 +578,7 @@ function imSetup() {
 					"<li class='mrgn-tp-md marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb_im.lang] + "' target='_blank'>" + survey["yes-" + wb_im.lang] + "</a></li> " + 
 					"<li class='mrgn-tp-md marginBottom-no'><button id='survey-no' class='gc-im-btn gc-im-btn-secondary survey-close'>" + survey["no-" + wb_im.lang] + "</button></li>" +
 				"</ul>" +
-				"<input type='hidden' name='popupName' value='" + survey["title-en"] + "'>" +
+				popupInput +
 			"</div>" +
 			"<div class='gc-im-modal-footer  hidden'>" +
 		
@@ -639,6 +653,7 @@ function imSetup() {
 		// Insert the overlay directly before the <main> element.
 		$( "main" ).before( $html );
 		
+		
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
 		if (wb_im.lang === "fr")
 		{
@@ -654,6 +669,16 @@ function imSetup() {
 		$( "#gc-im-popup" ).trigger( "wb-init.gc-im-wb-overlay" );
 		$( "#gc-im-popup" ).trigger( "open.gc-im-wb-overlay" );
 		
+		// add for Adobe tracking
+		if (!$html.is(":hidden") && Adobe.toLowerCase() == "yes")
+		{
+			var popUpName = $("input[name='popupName']").val();
+                   
+			_satellite.setVar('jsPopupName', popUpName);
+			//direct call rule
+			_satellite.track('popUpImpression');
+			
+		}
 		
 		// Correct popup positionning on load, on resize an on Y scroll if necessary
 		$( window ).on( "resize scroll", function() {
@@ -724,6 +749,7 @@ function imSetup() {
 			.done( function (result) {
 				var myConfig = JSON.parse( JSON.stringify( result ) );;
         		dbURL = myConfig.dbURL;
+				Adobe = myConfig.Adobe;
 				if (dbURL) {
 					mainPart1();
 				}
