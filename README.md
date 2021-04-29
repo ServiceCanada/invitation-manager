@@ -14,6 +14,6 @@ Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exe
 
 Lis le [Manuel d'Installation du Gestionnaire d'Invitation](https://servicecanada.github.io/invitation-manager/Installation-fr.html) pour apprendre comment télécharger et installer l’outil.
 
-Lis les [instructions de mise à jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.1.0-fr.html) pour apprendre comment mettre à jour la version 1.0.0 à la version 1.1.0 de l’outil.
+Lis les [Instructions de Mise à Jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.1.0-fr.html) pour apprendre comment mettre à jour la version 1.0.0 à la version 1.1.0 de l’outil.
 - Version 1.0.0 première publication de Gestionnaire d’invitation.
 - Version 1.1.0 ajoute le suivi Adobe Analytics au Gestionnaire d’invitation.
