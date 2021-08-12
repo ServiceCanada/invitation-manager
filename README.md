@@ -14,11 +14,17 @@ Version history:
 	
 ---
 
-# Gestionnaire d'invitation
+# Gestionnaire d'invitation V1.1.1
 Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exemple](https://servicecanada.github.io/invitation-manager/test-IM/test-fra.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
 Lis le [Manuel d'Installation du Gestionnaire d'invitation](https://servicecanada.github.io/invitation-manager/Installation-fr.html) pour apprendre comment télécharger et installer l’outil.
 
-Lis les [Instructions de Mise à Jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.1.0-fr.html) pour apprendre comment mettre à jour la version 1.0.0 à la version 1.1.0 de l’outil.
-- Version 1.0.0 première publication de Gestionnaire d’invitation.
-- Version 1.1.0 ajoute le suivi Adobe Analytics au Gestionnaire d’invitation.
+Lis les Instructions de mise à jour du Gestionnaire d’Invitation pour apprendre comment mettre à jour l’outil.
+- Mise à jour de la version 1.0.0 vers la version 1.1.1 [Instructions de Mise à Jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.0.0ToV1.1.1-fr.html)
+- Mise à jour de la version 1.1.0 vers la version 1.1.1 [Instructions de Mise à Jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.1.0ToV1.1.1-fr.html)
+
+Historique des versions :
+-	La version 1.0.0 est la première publication du Gestionnaire d’Invitation.
+-	La version 1.1.0 ajoute une fonctionnalité de suivi des invitations contextuelles dans la suite de rapports GC Adobe Analytics.
+-	La version 1.1.1 corrige le problème de l'icône de fermeture (X) qui ne s'affiche pas correctement pour les invitations contextuelles dont le titre est long.
+
