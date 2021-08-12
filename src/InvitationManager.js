@@ -556,10 +556,10 @@ function imSetup() {
 	function invite(survey) {
 
 		var popupInput
-		if (Adobe.toLowerCase() == "yes")
+		if (Adobe.toLowerCase() === "yes")
 		{
 			popupInput = "<input type='hidden' name='popupName' value='" + survey["name"] + "'>" 
-		}
+		} 
 		else
 		{
 			popupInput = "" 
@@ -568,8 +568,11 @@ function imSetup() {
 		var html =  
 		"<aside id='gc-im-popup' class='asideBody gc-im-wb-overlay gc-im-modal-content gc-im-overlay-def gc-im-wb-popup-mid shadow' tabindex='0' >" +
 			"<header class='gc-im-modal-header'>" +
-				"<div class='gc-im-modal-title'>" + survey["title-" + wb_im.lang] + 
-					"<button id='close-im' type='button' class='gc-im-overlaydef closeIcon zoomX' aria-label='Close' >&times;</button>" +
+				"<div class='gc-im-modal-title'>" + 
+				"<div class='gc-im-modal-title-fix1'>" + survey["title-" + wb_im.lang] + "</div>" +
+					"<div class='gc-im-modal-title-fix2'>" + "<button id='close-im' type='button' class='gc-im-overlaydef closeIcon zoomX' aria-label='Close' >&times;</button>" +
+					"</div>" +
+					"<div class='clearfix'></div>" +
 				"</div>" + // for the close icon
 			"</header>" +
 			"<div class='gc-im-modal-body'>" +
@@ -670,7 +673,7 @@ function imSetup() {
 		$( "#gc-im-popup" ).trigger( "open.gc-im-wb-overlay" );
 		
 		// add for Adobe tracking
-		if (!$html.is(":hidden") && Adobe.toLowerCase() == "yes")
+		if (!$html.is(":hidden") && Adobe.toLowerCase() === "yes")
 		{
 			var popUpName = $("input[name='popupName']").val();
                    
