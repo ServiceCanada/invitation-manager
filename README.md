@@ -1,7 +1,7 @@
 # Invitation Manager V1.1.1
 Create and manage invitation pop-ups on your website. [Here is an example](https://servicecanada.github.io/invitation-manager/test-IM/test-eng.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
-Read the [Invitation Manager Installation Manual](https://servicecanada.github.io/invitation-manager/Installation.html) to learn how to download and install V1.1.1 the tool.
+Read the [Invitation Manager Installation Manual](https://servicecanada.github.io/invitation-manager/Installation.html) to learn how to download and install V1.1.1 of the tool.
 
 Read the Invitation Manager Update Instructions to learn how to update the tool
 - Update version 1.0.0 to version 1.1.1 [Invitation Manager Update Instructions](https://servicecanada.github.io/invitation-manager/UpdateV1.0.0ToV1.1.1-en.html)
