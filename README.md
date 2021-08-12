@@ -6,11 +6,12 @@ Read the [Invitation Manager Installation Manual](https://servicecanada.github.i
 Read the Invitation Manager Update Instructions to learn how to update the tool
 - Update version 1.0.0 to version 1.1.1 [Invitation Manager Update Instructions](https://servicecanada.github.io/invitation-manager/UpdateV1.0.0ToV1.1.1-en.html)
 - Update version 1.1.0 to version 1.1.1 [Invitation Manager Update Instructions](https://servicecanada.github.io/invitation-manager/UpdateV1.1.0ToV1.1.1-en.html)
+
 Version history:
 -	Version 1.0.0 first release of Invitation Manager.
 -	Version 1.1.0 adds functionality to track the popup invitations within the GC Adobe Analytics report suite.
 -	Version 1.1.1 adds a fix addressing issue of the close icon (X) displaying incorrectly for popup invitations with long titles.
--	
+	
 ---
 
 # Gestionnaire d'invitation
