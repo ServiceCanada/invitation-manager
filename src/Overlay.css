@@ -112,7 +112,10 @@
 	color: #fff; 
 	background-color: transparent; 
 	border : transparent;
-	margin-right: 0; 
+	/* Fixes for close icon 
+	margin-right: 0; */
+	margin-right: 0 5px 0 0;
+	padding: 0;	
 }
 
 
@@ -176,7 +179,8 @@ a.gc-im-btn {
 
 .gc-im-btn-primary {
 	background-color: #26374A;
-	color: #FFFFFF;
+	/*color: #FFFFFF;*/
+	color: #FFFFFF !important;
 }
 .gc-im-btn-primary:focus {
 	background-color: #1C578A;
@@ -255,4 +259,22 @@ a.gc-im-btn {
 
 .im-mrgn {
 	margin-top: 350px;
+}
+
+/* Fixes for Iphone7 close button */
+.gc-im-modal-title-fix1 {
+	width: 90%;
+	float: left;
+	margin-bottom: 0px;
+}
+
+.gc-im-modal-title-fix2 {
+	width: 10%;
+	float: right;
+}
+
+.gc-im-modal-modal-header div.clearfix::after {
+	content: “”;
+	clear: both;
+	display: table;
 }
