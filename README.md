@@ -17,7 +17,7 @@ Version history:
 # Gestionnaire d'invitation V1.1.1
 Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exemple](https://servicecanada.github.io/invitation-manager/test-IM/test-fra.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
-Lis le [Manuel d'Installation du Gestionnaire d'invitation](https://servicecanada.github.io/invitation-manager/Installation-fr.html) pour apprendre comment télécharger et installer l’outil.
+Lis le [Manuel d'Installation du Gestionnaire d'invitation](https://servicecanada.github.io/invitation-manager/Installation-fr.html) pour apprendre comment télécharger et installer V1.1.1 l’outil.
 
 Lis les Instructions de mise à jour du Gestionnaire d’Invitation pour apprendre comment mettre à jour l’outil.
 - Mise à jour de la version 1.0.0 vers la version 1.1.1 [Instructions de Mise à Jour du Gestionnaire d’invitation](https://servicecanada.github.io/invitation-manager/UpdateV1.0.0ToV1.1.1-fr.html)
