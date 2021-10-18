@@ -39,11 +39,10 @@ function imSetup() {
 	try { 
 		
 		// download the dbURL path
-
 		if (!dbURL)
 		{
 			dbUrlFromJson();
-			
+
 			// asynchronous call
 		}
 		else {
@@ -60,24 +59,24 @@ function imSetup() {
 	 * main function Part One - setup the survey data
 	 */
 	function mainPart1 () {
-		
 		if (!dbURL) {
 			return;
 		}
-
 		// Enable console logging if debug mode is turned on
 		debugMode = checkEnableDebugMode();
-		
 		consoleLog("Start");
 
 		// Check if any special parameters are used for testing reasons
-		checkTestParams();
-		
-		consoleLog("Check Test Params");
+		checkTestParams();		
+		consoleLog("Check Test Params");	
 
-		// If the user has not seen a survey
-		if (!localStorage.getItem('lastDateIMShown')) {
-			
+		/* In order to handle the proper functioning of IM for websites
+		 * that have IM installed on different subdomains from different servers,
+		 * survey serving is now conditioned by the presence of the cookie 'lastDateIMShown' and not
+		 * by the localstorage item 'lastDateIMShown'
+		 * If there is no cookie "lastDateIMShown", the user has not seen a survey
+		 */
+		if ( !getCookie('lastDateIMShown')) {
 			consoleLog("lastDateIMShown === null");
 
 			// Check if DB is already in session storage
@@ -87,23 +86,34 @@ function imSetup() {
 			if (!surveyDB) {
 				consoleLog("downloadSurveyDB");
 				downloadSurveyDB();
-
 				// Asynchronous call, do not execute code here
 			}
 			else {
-				mainPart2();
+				/* To take into consideration the surveys that were visible prior the 'cookie handling' implementation
+				 * the script has to check the localstorage for 'lastDateIMShown' and setup the cookie with that date.
+				 * The expiration of the cookie should be the sum of lastDateIMShown and the survey setting duration-delay value
+				 */
+				if(localStorage.getItem('lastDateIMShown')){
+					var cookieName = 'lastDateIMShown',
+					maxNbDaysIMPersist = new Date(localStorage.getItem('lastDateIMShown'));
+					maxNbDaysIMPersist.setDate(maxNbDaysIMPersist.getDate() + surveyDB.settings["duration-delay"]);
+					setCookie(cookieName,localStorage.getItem('lastDateIMShown'),maxNbDaysIMPersist, removeSubdomain(window.location.href.toLowerCase()));
+				}else{
+					mainPart2();
+				}
 			}
 		}
 		// Case when the user has already seen an invitation
 		else {
 			consoleLog("User has seen an invitation already");
-
 			downloadSurveyDB();
-			
 			// Asynchronous call may have been made, do not execute code here
+			/* If shown survey was served from another server, make sure the localstorage item 'lastDateIMShown' is set
+			 * with the value from 'lastDateIMShown' cookie.
+			 */			
+			localStorage.setItem('lastDateIMShown', new Date(getCookie('lastDateIMShown')));
+			
 		}
-		
-
 	}
 
 
@@ -111,18 +121,21 @@ function imSetup() {
 	 * main function Part two - select the survey to display
 	 */
 	function mainPart2() {
-
 		// Make sure the surveyDB object is set, it could not have been defined if 
 		// localStorage was not defined and the json is unfound on the server
 		if (!surveyDB || !surveyDB.settings)
-		 return;
-	 
-		if (localStorage.getItem('lastDateIMShown')) {
-			var	lastDateIMShown = new Date(localStorage.getItem("lastDateIMShown"));		
-			if (isStorageExpired(lastDateIMShown)) 
-				localStorage.removeItem("lastDateIMShown");
-			else
+			return;
+		
+		if (getCookie('lastDateIMShown')) {
+			var	lastDateIMShown = new Date(getCookie('lastDateIMShown'));
+			// If storage delay is expired, remove 'lastDateIMShown' from cookie and localstorage
+			if (isStorageExpired(lastDateIMShown)) {
+				document.cookie = "lastDateIMShown=;expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure;domain=" + removeSubdomain(window.location.href.toLowerCase()) + ";path=/";
+				localStorage.removeItem( "lastDateIMShown" );
+			}
+			else{
 				return;
+			}
 		}
 		
 
@@ -231,21 +244,25 @@ function imSetup() {
 
 				}
 			}
-			
 			consoleLog("Select survey " + cpySurveys[selectedSurveyIndex].name);
-
-			var now = new Date();
-			
 			// Popup the survey
 			invite(cpySurveys[selectedSurveyIndex]);
 
-			//set the date visitor was invited
-			localStorage.setItem('lastDateIMShown', now);
-			
+			//set lastDateIMShown in localStorage and cookie with the date the visitor was invited
+			if(!getCookie('lastDateIMShown')  && !(/[?&]im_nocookiecheck=1/i.test(document.location.search))){
+				//set a cookie with the domain name and the date visitor was invited 
+				var cookieName = 'lastDateIMShown';				
+				var maxNbDaysIMPersist = new Date(),
+				lastDateIMShown = new Date();
+				maxNbDaysIMPersist.setDate(maxNbDaysIMPersist.getDate() + surveyDB.settings["duration-delay"]);
+				//set the date visitor was invited in localstorage
+				localStorage.setItem('lastDateIMShown', lastDateIMShown);	
+				
+				setCookie(cookieName,lastDateIMShown,maxNbDaysIMPersist, removeSubdomain(window.location.href.toLowerCase()))
+			}
 		}
 		else {
 			consoleLog("No survey selected, " + surveyDB.surveys.length + " surveys remain in session storage");
-			
 			//save the updated DB to session storage
 			//the DB must be saved here since we need to remove surveys that were applicable on this page so we don't test for them again in the visit
 			sessionStorage.setItem(storageNames.session, JSON.stringify(surveyDB));
@@ -699,8 +716,6 @@ function imSetup() {
 			else{
 				$footer.removeClass( "im-mrgn" );
 			}
-			
-
 			if ( $( window ).scrollTop() >= $( document ).outerHeight() - $( window ).outerHeight() - $footer.outerHeight() ) {
 					$html.css( {
 						bottom: ( $footer.outerHeight() - ( $( document ).outerHeight() - $( window ).outerHeight() - $( window ).scrollTop() ) + bottomY )
@@ -719,9 +734,7 @@ function imSetup() {
 	* get the dbURL path from the config.json file
 	*/
 	function dbUrlFromJson() {
-		
-		// find the path of the current javascript file "InvitationManager.js"
-		
+		// find the path of the current javascript file "InvitationManager.js"		
 		var scripts = document.getElementsByTagName("script"),
 		i = 0,
 		path = "";
@@ -766,9 +779,41 @@ function imSetup() {
 			.always( function() {
 				consoleLog("Get Config File Path is Completed");
 			});
-				   		
 	}
 
-	
-}
+	/**
+	 * Return the domain name without the subdomain.
+	 * @param {string} url The domain url to be cleaned
+	 * @return {string} url without the subdomain;
+	 */
+	function removeSubdomain (url) {
+		const urlSegments = new URL(url).hostname.split('.')
+		// consider domains names having .gc or .qc before the domain name suffix
+		var arrIndex = ['gc', 'qc'].indexOf(urlSegments.slice(-2)[0]) >= 0 ?3:2;
+		return urlSegments.slice(0).slice(-(arrIndex)).join('.')
+	}
 
+	/**
+	 * Return the cookie value for a specific cookie.
+	 * @param {string} name cookie name
+	 * @return {string} cookie value
+	 */
+	function getCookie(name){
+		if (document.cookie.split(';').some((item) => item.trim().startsWith(name+'='))) {
+			return document.cookie.split('; ').find(row => row.startsWith(name.trim())).split('=')[1]
+		}
+		return false ;
+	}
+
+	/**
+	 * Set a cookie.
+	 * @param {string} cName cookie name
+	 * @param {Date} cValue cookie value
+	 * @param {Date} cExpDate cookie expiration date
+	 * @param {string} cDomain cookie domain
+	 */
+	function setCookie(cName,cValue,cExpDate,cDomain){
+		document.cookie = cName +"=" + cValue + ";expires=" + cExpDate 
+				+ ";domain=" + cDomain + ";Secure;path=/";
+	}
+}
