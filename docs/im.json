@@ -74,7 +74,7 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "name" : "ESDC - MSCA Feedback Form - Thank you page",
     "survey-urls" : [
-      {"url" : "https://servicecanada.github.io/invitation-manager/test-IM"}
+      {"url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM"}
     ]
   },
   {
@@ -97,8 +97,8 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "name" : "ESDC - MSCA Feedback Form - Thank you page",
     "survey-urls" : [
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test-eng.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test-fra.html"}
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test-fra.html"}
 			
     ]
   },
@@ -123,10 +123,10 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "name" : "ESDC - MSCA Feedback Form",
     "survey-urls" : [
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test2-eng.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test2-fra.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test3-eng.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test3-fra.html"}
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test2-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test2-fra.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test3-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test3-fra.html"}
 	
     ]
   },
@@ -151,8 +151,8 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "name" : "ESDC - MSCA Feedback Form",
     "survey-urls" : [
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test4-eng.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test4-fra.html"}
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test4-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test4-fra.html"}
 	
     ]
   },
@@ -177,8 +177,8 @@
     "close-fr" : "Fermer : Sondage de fin de visite (touche d&apos;échappement)",
     "name" : "ESDC - MSCA Feedback Form",
     "survey-urls" : [
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test5-eng.html"},
-			{ "url" : "https://servicecanada.github.io/invitation-manager/test-IM/test5-fra.html"}
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test5-eng.html"},
+			{ "url" : "https://servicecanada.github.io/invitation-manager/docs/test-IM/test5-fra.html"}
 
     ]
   }
