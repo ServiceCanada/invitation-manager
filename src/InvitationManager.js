@@ -672,7 +672,9 @@ function imSetup() {
 
 		// Insert the overlay directly before the <main> element.
 		$( "main" ).before( $html );
-		
+
+		// Since jQuery fix will sanitize the target attribute, here is a quick solution to add it back right after the IM html popup is inserted
+		$("#survey-yes").attr("target", "_blank");
 		
 		// Inset the "Skip to Invitation Manager Popup" link before the <main> element.
 		if (wb_im.lang === "fr")
@@ -749,10 +751,12 @@ function imSetup() {
 			i++;
 		}
 		
-		// This part is added just to work with github example
-		if (path.indexOf("https://combinatronics.com/ServiceCanada/invitation-manager/master/src") > -1) 
+		/* window.imConfigPath stores the path of the config.JSON file.
+		 * if not defined, the script will check for config.JSON in the same directory where InvitationManger.js is located
+		 */
+		if (window.imConfigPath) 
 		{
-			path = "https://servicecanada.github.io/invitation-manager/";
+			path = window.imConfigPath;
 		}
 		
 		// get the config.json file
