@@ -595,7 +595,7 @@ function imSetup() {
 			"<div class='gc-im-modal-body'>" +
 				survey["body-" + wb_im.lang] +
 				"<ul class='list-inline mrgn-sm'>" +
-					"<li class='mrgn-sm marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb_im.lang] + "' target='_blank'>" + survey["yes-" + wb_im.lang] + "</a></li> " + 
+			"<li class='mrgn-sm marginBottom-yes'><a id='survey-yes' class='gc-im-btn gc-im-btn-primary' href='" + survey["link-" + wb_im.lang] + "' target='_blank' referrer-policy='unsafe-url'>" + survey["yes-" + wb_im.lang] + "</a></li> " + 
 					"<li class='mrgn-sm marginBottom-no'><button id='survey-no' class='gc-im-btn gc-im-btn-secondary survey-close'>" + survey["no-" + wb_im.lang] + "</button></li>" +
 				"</ul>" +
 				popupInput +
