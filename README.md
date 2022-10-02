@@ -4,7 +4,7 @@ Create and manage invitation pop-ups on your website. [Here is an example](https
 
 Read the [Invitation Manager Installation Manual](https://github.com/ServiceCanada/invitation-manager/wiki/Installation-Guide) to learn how to download and install the tool.
 
-Read the [Invitation Manager Publishing Manual](https://github.com/ServiceCanada/invitation-manager/wiki/Publishing-Guide-Guide) to learn the process of publishing pop-up invitation on your department's website.
+Read the [Invitation Manager Publishing Manual](https://github.com/ServiceCanada/invitation-manager/wiki/Publishing-Guide) to learn the process of publishing pop-up invitation on your department's website.
 
 [Version history](https://github.com/ServiceCanada/invitation-manager/releases)
 	
