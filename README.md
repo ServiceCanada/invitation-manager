@@ -14,9 +14,9 @@ Read the [Invitation Manager Publishing Manual](https://github.com/ServiceCanada
 
 Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exemple](https://servicecanada.github.io/invitation-manager/docs/test-IM/test-fra.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
-Lisez le [Manuel d'Installation du Gestionnaire d'invitation](https://github.com/ServiceCanada/invitation-manager/wiki/Installation-Guide-fr) pour apprendre comment télécharger et installer l’outil.
+Lisez le [Manuel d'Installation du Gestionnaire d'invitation](https://github.com/ServiceCanada/invitation-manager/wiki/Guide-d'installation) pour apprendre comment télécharger et installer l’outil.
 
-Lisez le [Manuel de publication du Gestionnaire d'invitation](https://github.com/ServiceCanada/invitation-manager/wiki/Publishing-Guide-Guide-fr) pour apprendre le processus de publication de fenêtres contextuelles d'invitation sur le site Web des différents ministères.
+Lisez le [Manuel de publication du Gestionnaire d'invitation](https://github.com/ServiceCanada/invitation-manager/wiki/Guide-de-publication) pour apprendre le processus de publication de fenêtres contextuelles d'invitation sur le site Web des différents ministères.
 
 [Historique des versions](https://github.com/ServiceCanada/invitation-manager/releases)
 
