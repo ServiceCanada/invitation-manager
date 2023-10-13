@@ -1,4 +1,4 @@
-# Invitation Manager V1.2.0 
+# Invitation Manager V1.2.2 
 
 Create and manage invitation pop-ups on your website. [Here is an example](https://servicecanada.github.io/invitation-manager/docs/test-IM/test-eng.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
@@ -10,7 +10,7 @@ Read the [Invitation Manager Publishing Manual](https://github.com/ServiceCanada
 	
 ---
 
-# Gestionnaire d'invitation V1.2.0 
+# Gestionnaire d'invitation V1.2.2 
 
 Créez et gérez des invitations contextuelles sur votre site Web. [Voici un exemple](https://servicecanada.github.io/invitation-manager/docs/test-IM/test-fra.html?logim=1&im_scope=Page&im_surveyid=4&im_nocookiecheck=1&im_nodatecheck=1).
 
